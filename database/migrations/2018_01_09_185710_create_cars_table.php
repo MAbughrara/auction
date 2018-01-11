@@ -16,16 +16,15 @@ class CreateCarsTable extends Migration
         Schema::create('cars', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('seller_id')->unsigned();
-            $table->integer('buyer_id')->unsigned()->nullable();
             $table->string('status');
             $table->string('model');
             $table->string('notes');
             $table->integer('km');
+            $table->integer('first_bid');
             $table->date('year');
             $table->timestamps();
 
             $table->foreign('seller_id')->references('id')->on('users');
-            $table->foreign('buyer_id')->references('id')->on('users');
 
         });
     }

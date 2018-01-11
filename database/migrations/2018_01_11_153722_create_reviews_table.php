@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class RoleUser extends Migration
+class CreateReviewsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,17 @@ class RoleUser extends Migration
      */
     public function up()
     {
-        Schema::create('role_user', function (Blueprint $table) {
-
+        Schema::create('reviews', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
-            $table->integer('role_id')->unsigned();
+            $table->integer('car_id')->unsigned();
+            $table->string('comment');
+            $table->integer('rate');
+            $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('role_id')->references('id')->on('roles');
+            $table->foreign('car_id')->references('id')->on('cars');
         });
-
     }
 
     /**
@@ -32,6 +33,6 @@ class RoleUser extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('reviews');
     }
 }
