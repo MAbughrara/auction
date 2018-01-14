@@ -17,7 +17,7 @@ class CreateBidsTable extends Migration
             $table->increments('id');
             $table->integer('car_id')->unsigned();
             $table->integer('bidder_id')->unsigned();
-            $table->integer('bid');
+            $table->integer('bid_val');
 
             $table->timestamps();
 

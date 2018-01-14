@@ -21,6 +21,7 @@ class CreateCarsTable extends Migration
             $table->string('notes');
             $table->integer('km');
             $table->integer('first_bid');
+            $table->date('end_date');
             $table->date('year');
             $table->timestamps();
 
