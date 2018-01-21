@@ -29,6 +29,19 @@ class User extends Authenticatable
 
 
     public function reviews(){
-        $this->hasMany(Car::class);
+        return $this->hasMany(Review::class);
+    }
+
+
+    public function bids(){
+        return $this->hasMany(Bid::class,'bidder_id');
+    }
+
+    public function cars(){
+        return $this->hasMany(Car::class,'seller_id');
+    }
+
+    public function purchases(){
+        return $this->hasMany(Car::class,'buyer_id');
     }
 }
