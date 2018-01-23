@@ -29,9 +29,12 @@ class User extends Authenticatable
 
 
     public function reviews(){
-        return $this->hasMany(Review::class);
+        return $this->hasMany(Review::class,'creator_id');
     }
 
+    public function reviewed(){
+        return $this->hasMany(Review::class,'target_id');
+    }
 
     public function bids(){
         return $this->hasMany(Bid::class,'bidder_id');
@@ -43,5 +46,9 @@ class User extends Authenticatable
 
     public function purchases(){
         return $this->hasMany(Car::class,'buyer_id');
+    }
+
+    public function role(){
+        return $this->hasOne(Role::class);
     }
 }

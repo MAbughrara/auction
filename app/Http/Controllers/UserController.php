@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Car;
-
-class CarController extends Controller
+use App\User;
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -66,7 +65,7 @@ class CarController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update( $id)
+    public function update($id)
     {
         //
     }
