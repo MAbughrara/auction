@@ -27,7 +27,6 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-
     public function reviews(){
         return $this->hasMany(Review::class,'creator_id');
     }
