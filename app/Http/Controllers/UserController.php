@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Review;
 use App\User;
 class UserController extends Controller
 {
@@ -44,7 +45,12 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        $user = User::where('id',"$id")->get();
+        $reviews = Review::where('target_id',"$id")->get();
+        $c = $reviews[0]->creator_id;
+        $reviewer = User::where('id',"$c")->get();
+//        dd($reviewer[0]->name);
+        return view('user.show', compact('user','reviews','reviewer'));
     }
 
     /**
