@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Car;
+use Illuminate\Http\Request;
 
-class CarController extends Controller
+class BidController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +13,7 @@ class CarController extends Controller
      */
     public function index()
     {
-        return view('cars.index');
+        //
     }
 
     /**
@@ -23,7 +23,7 @@ class CarController extends Controller
      */
     public function create()
     {
-        return view('cars.create');
+        //
     }
 
     /**
@@ -32,7 +32,7 @@ class CarController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store()
+    public function store(Request $request)
     {
         //
     }
@@ -66,7 +66,7 @@ class CarController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update( $id)
+    public function update(Request $request, $id)
     {
         //
     }
