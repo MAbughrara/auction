@@ -13,7 +13,8 @@ class CarController extends Controller
      */
     public function index()
     {
-        return view('cars.index');
+        $cars=Car::all();
+        return view('cars.index',compact('cars'));
     }
 
     /**
@@ -34,7 +35,7 @@ class CarController extends Controller
      */
     public function store()
     {
-        //
+//        return redirect('/cars/show',$car->id)
     }
 
     /**
@@ -43,9 +44,10 @@ class CarController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Car $car)
     {
-        //
+
+        return view('cars.show',compact('car'));
     }
 
     /**
@@ -54,9 +56,9 @@ class CarController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Car $car)
     {
-        //
+        return view('cars.edit',compact('car'));
     }
 
     /**
@@ -66,9 +68,10 @@ class CarController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update( $id)
+    public function update(Car $car)
     {
-        //
+        return redirect('/cars/edit',$car->id);
+
     }
 
     /**
@@ -77,7 +80,7 @@ class CarController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Car $car)
     {
         //
     }
