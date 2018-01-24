@@ -58,7 +58,7 @@
                             <div class="col-sm-6">
                                 <div class="rating-block">
                                     <h4>Average user rating</h4>
-                                    <h2 class="bold padding-bottom-7">4.3
+                                    <h2 class="bold padding-bottom-7">{{floatval(\App\Review::avg($user[0]->id))}}
                                         <small>/ 5</small>
                                     </h2>
                                     <button type="button" class="btn btn-warning btn-sm" aria-label="Left Align">

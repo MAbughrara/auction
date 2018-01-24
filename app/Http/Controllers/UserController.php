@@ -47,9 +47,9 @@ class UserController extends Controller
     {
         $user = User::where('id',"$id")->get();
         $reviews = Review::where('target_id',"$id")->get();
-        $c = $reviews[0]->creator_id;
-        $reviewer = User::where('id',"$c")->get();
-//        dd($reviewer[0]->name);
+//        $c = $reviews[0]->creator_id;
+//        $reviewer = User::where('id',"$c")->get();
+//        dd(Review::avg($id));
         return view('user.show', compact('user','reviews','reviewer'));
     }
 
