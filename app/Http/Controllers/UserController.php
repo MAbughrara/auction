@@ -50,7 +50,7 @@ class UserController extends Controller
 //        $c = $reviews[0]->creator_id;
 //        $reviewer = User::where('id',"$c")->get();
 //        dd(Review::avg($id));
-        return view('user.show', compact('user','reviews','reviewer'));
+        return view('users.show', compact('user','reviews','reviewer'));
     }
 
     /**
