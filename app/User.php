@@ -50,4 +50,11 @@ class User extends Authenticatable
     public function role(){
         return $this->hasOne(Role::class);
     }
+
+    public static function hasReview($id){
+        if(Review::where('target_id',"$id")->count() == 0)
+            return false;
+        else
+            return true;
+    }
 }
