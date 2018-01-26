@@ -36,11 +36,18 @@
                                     <i class="glyphicon glyphicon-usd" role="presentation"></i>
                                     Bids </a>
                             </li>
+                            @if(auth()->id() == $user->id)
+                            <li>
+                                <a href="#purchase" role="tab" data-toggle="tab">
+                                    <i class="glyphicon glyphicon-shopping-cart" role="presentation"></i>
+                                    Purchases </a>
+                            </li>
                             <li>
                                 <a href="#account" role="tab" data-toggle="tab">
                                     <i class="glyphicon glyphicon-user" role="presentation"></i>
                                     Account Settings </a>
                             </li>
+                                @endif
                         </ul>
 
                     </div>
@@ -273,6 +280,7 @@
                         @endif
                     </div>
                     <div role="tabpanel" class="tab-pane" id="bids">...</div>
+                    <div role="tabpanel" class="tab-pane" id="purchase">purchase</div>
                     <div role="tabpanel" class="tab-pane" id="account">account settings</div>
 
                 </div>
@@ -291,6 +299,10 @@
         $('#account').find('a').click(function (e) {
             e.preventDefault();
             $(this).tab('account')
+        });
+        $('#purchase').find('a').click(function (e) {
+            e.preventDefault();
+            $(this).tab('purchase')
         })
     </script>
 @endsection
