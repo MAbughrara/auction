@@ -17,16 +17,16 @@ class Review extends Model
     }
 
     public static function avg($id){
-        return $rate = DB::table('reviews')->where('target_id',"$id")->avg('rate');
+        return floatval(Review::where('target_id',"$id")->avg('rate'));
     }
 
     public static function starsCount($id, $star){
-        return $stars = Review::where('target_id',"$id")->where('rate',"$star")->count();
+        return Review::where('target_id',"$id")->where('rate',"$star")->count();
     }
 
     public static function starPercent($id, $star){
         $review_count = Review::where('target_id',"$id")->count();
         $star_count = Review::starsCount($id, $star);
-        return $percent = (($star_count/$review_count)* 100);
+        return (($star_count/$review_count)* 100);
     }
 }

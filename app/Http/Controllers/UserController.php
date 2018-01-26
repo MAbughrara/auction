@@ -43,13 +43,12 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(User $user)
     {
-        $user = User::where('id',"$id")->get();
-        $reviews = Review::where('target_id',"$id")->get();
+        $reviews = Review::where('target_id',"$user->id")->get();
 //        $c = $reviews[0]->creator_id;
 //        $reviewer = User::where('id',"$c")->get();
-//        dd(Review::avg($id));
+//        dd(\App\User::find(1)->reviewed()->get());
         return view('users.show', compact('user','reviews','reviewer'));
     }
 

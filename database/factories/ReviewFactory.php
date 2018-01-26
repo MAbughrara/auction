@@ -3,10 +3,11 @@
 use Faker\Generator as Faker;
 
 $factory->define(\App\Review::class, function (Faker $faker) {
+    $users = \App\User::all()->pluck('id')->toArray();
     return [
-//        'creator_id' => $faker->name,
-//        'target_id' => $faker->unique()->safeEmail,
-//        'comment' => $faker->unique()->numberBetween(min([1910000000]),max([1929999999])),
-//        'rate' => $faker->numberBetween(min([1]),max([5]))
+        'creator_id' => $faker->randomElement($users),
+        'target_id' => $faker->randomElement($users),
+        'comment' => $faker->sentence,
+        'rate' => $faker->numberBetween(min([1]),max([5]))
     ];
 });
