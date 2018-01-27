@@ -19,10 +19,15 @@
                     </div>
                     <!-- END SIDEBAR USER TITLE -->
                     <!-- SIDEBAR BUTTONS -->
-                    <div class="profile-userbuttons">
-                        <button type="button" class="btn btn-success btn-sm">Review</button>
-                    </div>
-                    <!-- END SIDEBAR BUTTONS -->
+                    @unless(auth()->id() == $user->id)
+                        <div class="profile-userbuttons">
+                            <button type="button" class="btn btn-success btn-sm" data-toggle="modal"
+                                    data-target="#addReview">Review
+                            </button>
+                        </div>
+                @endunless
+                @include('users.partials.addReview')
+                <!-- END SIDEBAR BUTTONS -->
                     <!-- SIDEBAR MENU -->
                     <div class="profile-usermenu">
                         <ul class="nav" role="tablist">

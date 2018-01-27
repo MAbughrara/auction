@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 
 class Review extends Model
 {
+    protected $fillable = ['comment','rate','creator_id','target_id'];
 
     public function reviewer(){
         return $this->belongsTo(User::class,'creator_id');

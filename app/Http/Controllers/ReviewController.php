@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Review;
+use Illuminate\Http\Request;
 
 class ReviewController extends Controller
 {
@@ -13,7 +14,7 @@ class ReviewController extends Controller
      */
     public function index()
     {
-        //
+
     }
 
     /**
@@ -32,9 +33,16 @@ class ReviewController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store()
+    public function store(Request $request)
     {
-        //
+//        dd($request->get('name'));
+        Review::create([
+            'comment' => request()->comment,
+            'rate' => request()->rate,
+            'creator_id' => auth()->id(),
+            'target_id' => request()->target_id,
+        ]);
+        return redirect()->back();
     }
 
     /**
@@ -43,9 +51,9 @@ class ReviewController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Review $id)
     {
-        //
+
     }
 
     /**

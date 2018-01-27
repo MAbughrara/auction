@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Review;
 use App\User;
+use Illuminate\Http\Request;
+
 class UserController extends Controller
 {
     /**
@@ -32,9 +34,10 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store()
+    public function store(Request $request)
     {
-        //
+//        dd(request());
+
     }
 
     /**
@@ -68,7 +71,18 @@ class UserController extends Controller
      */
     public function update($id)
     {
-        //
+        $this->validate(request(),[
+            'name' => 'required',
+            'phone' => 'required|min:10|max:11|unique:users,phone,'.auth()->id(),
+            'email' => 'required|unique:users,email,'.auth()->id(),
+//            'password' => 'required|string|min:6|confirmed',
+        ]);
+        auth()->user()->update([
+            'name' => request()->name,
+            'phone' => request()->phone,
+            'email' => request()->email,
+        ]);
+        return redirect()->back();
     }
 
     /**
