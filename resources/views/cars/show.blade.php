@@ -14,7 +14,11 @@
                                 {{ session('status') }}
                             </div>
                         @endif
+{{--                            <img src="{{asset('/storage/51/oPjjAXL5Q7eXUPQRc0AvsPPEt5ydPotaqAltpWQp.jpeg')}}">--}}
 
+                            @foreach($images as $key=>$image)
+                                <img src="{{asset('/storage/'.$car->id.'/'.$key.'.jpg')}}">
+                            @endforeach
                         You are logged in!
                     </div>
                 </div>

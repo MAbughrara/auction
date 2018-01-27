@@ -3,6 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Car;
+use Carbon\Carbon;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\File;
+
 
 class CarController extends Controller
 {
@@ -33,9 +38,33 @@ class CarController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store()
+    public function store(Request $request)
     {
-//        return redirect('/cars/show',$car->id)
+
+        $car= new Car();
+
+
+        $car->seller_id=auth()->user()->id;
+        $car->model=request('model');
+        $car->status=request('status');
+        $car->notes=request('notes');
+        $car->km=request('km');
+        $car->first_bid=request('first_bid');
+        $car->model=request('model');
+        $car->notes=request('note');
+        $car->end_date=Carbon::now();
+        $car->year=Carbon::now()->subDay();
+        $car->save();
+
+        if ($request->has('images')) {
+            $files = $request->file('images');
+            foreach($files as $key=>$file){
+
+          Storage::putFileAs('public/'.$car->id, $file,$key.'.jpg');
+
+        }
+        }
+        return redirect("/cars/$car->id");
     }
 
     /**
@@ -46,8 +75,9 @@ class CarController extends Controller
      */
     public function show(Car $car)
     {
+        $images= Storage::files('public/'.$car->id);
 
-        return view('cars.show',compact('car'));
+        return view('cars.show',compact('car'),compact('images'));
     }
 
     /**
