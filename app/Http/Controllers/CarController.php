@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Brand;
 use App\Car;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -29,7 +30,8 @@ class CarController extends Controller
      */
     public function create()
     {
-        return view('cars.create');
+        $brands=Brand::all();
+        return view('cars.create',compact('brands'));
     }
 
     /**
@@ -40,18 +42,16 @@ class CarController extends Controller
      */
     public function store(Request $request)
     {
-
         $car= new Car();
         $car->seller_id=auth()->user()->id;
-        $car->model=request('model');
+        $car->brand_id=request('brand_id');
         $car->status=request('status');
         $car->notes=request('notes');
         $car->km=request('km');
         $car->first_bid=request('first_bid');
-        $car->model=request('model');
         $car->notes=request('note');
-        $car->end_date=Carbon::now();
-        $car->year=Carbon::now()->subDay();
+        $car->end_date=request('end_date');
+        $car->year=request('year');
         $car->save();
 
         if ($request->has('images')) {
@@ -99,7 +99,6 @@ class CarController extends Controller
     public function update(Car $car)
     {
         return redirect('/cars/edit',$car->id);
-
     }
 
     /**

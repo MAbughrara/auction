@@ -18,8 +18,8 @@ class CreateCarsTable extends Migration
             $table->integer('seller_id')->unsigned();
             $table->integer('buyer_id')->unsigned()->nullable();
             $table->string('status');
-            $table->string('model');
-            $table->string('notes');
+            $table->integer('brand_id')->unsigned();
+            $table->string('notes')->nullable();
             $table->integer('km');
             $table->integer('first_bid');
             $table->date('end_date');
@@ -27,6 +27,7 @@ class CreateCarsTable extends Migration
             $table->timestamps();
 
             $table->foreign('seller_id')->references('id')->on('users');
+            $table->foreign('brand_id')->references('id')->on('brands');
             $table->foreign('buyer_id')->references('id')->on('users');
 
         });

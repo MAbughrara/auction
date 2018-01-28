@@ -1,68 +1,71 @@
 @extends('layouts.app')
-
 @section('content')
-
-    <script src="{{ asset('/js/bootstrap-datetimepicker.min.js')}}"></script>
-
-
     <div class="container">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
                     <div class="panel-heading">create Auction</div>
-
                     <div class="panel-body">
                         <form action="/cars" method="post" enctype="multipart/form-data">
                             {{csrf_field()}}
                             <div class="form-group">
-                                <label for="model">Car Model</label>
-                                <input name="model" type="text" class="form-control" id="model" placeholder="Model">
+                                <label for="model">Car Brand</label>
+                                <select class="js-example-basic-single form-control" name="brand_id">
+                                    @foreach($brands as $brand)
+                                        <option value="{{$brand->id}}">{{$brand->name}}</option>
+                                    @endforeach
+                                </select>
                             </div>
-
+                            <hr>
                             <div class="form-group">
                                 <label for="km">KM</label>
                                 <input name="km" type="number" class="form-control" id="km" placeholder="Km">
                             </div>
-
+                            <hr>
                             <label for="status">Car status</label>
-
-                            <select class="form-control" name="status">
+                            <select class="js-example-basic-single form-control" name="status">
                                 <option value="acceptable">acceptable</option>
                                 <option value="good">good</option>
                                 <option value="veryGood">very good</option>
                                 <option value="excellent">excellent</option>
                             </select>
-
+                            <hr>
                             <div class="form-group">
                                 <label for="images">Image</label>
                                 <input name="images[]" type="file" id="images" multiple >
                                 <p class="help-block">Upload multiple Images for the car.</p>
                             </div>
                             <hr>
-
                             <div class="form-group">
                                 <label for="first_bid">Bis start at:</label>
                                 <input name="first_bid" type="number" class="form-control" id="first_bid">
                             </div>
-
-
+                            <hr>
                             <div class="form-group">
-                                <label for="dtp_input1" class="col-md-2 control-label">Made Year:</label>
-                                <div class="input-append date" id="datetimepicker" data-date="12-02-2012" data-date-format="dd-mm-yyyy">
-                                    <input class="span2" size="16" type="text" value="12-02-2012">
-                                    <span class="add-on"><i class="icon-th"></i></span>
-                                </div>
-                                <input name="year" type="hidden" id="dtp_input1" value="" /><br/>
+                            <label for="status">Made Year</label>
+                            <select class="js-example-basic-single form-control" name="year">
+                            @foreach(range(1985, 2018) as $number)
+                                    <option value="{{$number}}">{{$number}}</option>
+                            @endforeach
+                            </select>
                             </div>
-
+                            <hr>
+                             <div class="form-group">
+                                        <label for="dtp_input3" class="col-md-2 control-label">Close Bid At:</label>
+                                        <div class="input-group date form_time col-md-5" data-date="" data-date-format="hh:ii" data-link-field="dtp_input3" data-link-format="hh:ii">
+                                            <input  name="end_date" class="form-control" size="16" type="text" value="" readonly>
+                                            <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+                                            <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
+                                        </div>
+                                        <input name="end_date"  type="hidden" id="dtp_input3" value="" /><br/>
+                                    </div>
+                            <hr>
                             <div class="form-group">
                                 <label for="note">note</label>
                                 <textarea name="note" type="textarea" class="form-control" id="note"></textarea>
                             </div>
-
                             <button type="submit" class="btn btn-default">Submit</button>
                         </form>
-
                       </div>
                 </div>
             </div>
@@ -70,11 +73,21 @@
     </div>
 
     <script type="text/javascript">
-        $(".form_datetime").datetimepicker({
-            format: "yyyy",
-            showMeridian: true,
-            autoclose: true,
-            todayBtn: true
+        $('.form_time').datetimepicker({
+            language:  'fr',
+            weekStart: 1,
+            todayBtn:  1,
+            autoclose: 1,
+            todayHighlight: 1,
+            startView: 1,
+            minView: 0,
+            maxView: 1,
+            forceParse: 0
+        });
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('.js-example-basic-single').select2();
         });
     </script>
 @endsection

@@ -16,6 +16,7 @@
                     <ul>
                         @foreach($cars as $car)
                           <li>{{$car->model}}
+                          <li>{{$car->year}}
                         @endforeach
                     </ul>
 
