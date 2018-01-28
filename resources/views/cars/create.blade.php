@@ -52,7 +52,7 @@
                             <hr>
                              <div class="form-group">
                                         <label for="dtp_input3" class="col-md-2 control-label">Close Bid At:</label>
-                                        <div class="input-group date form_time col-md-5" data-date="" data-date-format="hh:ii" data-link-field="dtp_input3" data-link-format="hh:ii">
+                                        <div class="input-group date form_time col-md-5" data-date="" data-date-format="dd-MM-yyyy HH:ii" data-link-field="dtp_input3" data-link-format="dd-MM-yyyy HH:ii">
                                             <input  name="end_date" class="form-control" size="16" type="text" value="" readonly>
                                             <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
                                             <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
@@ -74,7 +74,7 @@
 
     <script type="text/javascript">
         $('.form_time').datetimepicker({
-            language:  'fr',
+            language:  'ar',
             weekStart: 1,
             todayBtn:  1,
             autoclose: 1,

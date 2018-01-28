@@ -57,9 +57,7 @@ class CarController extends Controller
         if ($request->has('images')) {
             $files = $request->file('images');
             foreach($files as $key=>$file){
-
           Storage::putFileAs('public/'.$car->id, $file,$key.'.jpg');
-
         }
         }
         return redirect("/cars/$car->id");
