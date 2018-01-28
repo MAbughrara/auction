@@ -2,6 +2,9 @@
 
 @section('content')
 
+    <script src="{{ asset('/js/bootstrap-datetimepicker.min.js')}}"></script>
+
+
     <div class="container">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
@@ -42,6 +45,16 @@
                                 <input name="first_bid" type="number" class="form-control" id="first_bid">
                             </div>
 
+
+                            <div class="form-group">
+                                <label for="dtp_input1" class="col-md-2 control-label">Made Year:</label>
+                                <div class="input-append date" id="datetimepicker" data-date="12-02-2012" data-date-format="dd-mm-yyyy">
+                                    <input class="span2" size="16" type="text" value="12-02-2012">
+                                    <span class="add-on"><i class="icon-th"></i></span>
+                                </div>
+                                <input name="year" type="hidden" id="dtp_input1" value="" /><br/>
+                            </div>
+
                             <div class="form-group">
                                 <label for="note">note</label>
                                 <textarea name="note" type="textarea" class="form-control" id="note"></textarea>
@@ -55,4 +68,13 @@
             </div>
         </div>
     </div>
+
+    <script type="text/javascript">
+        $(".form_datetime").datetimepicker({
+            format: "yyyy",
+            showMeridian: true,
+            autoclose: true,
+            todayBtn: true
+        });
+    </script>
 @endsection

@@ -9,13 +9,17 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
-
+    <script src="{{ asset('js/jquery.js') }}"></script>
+    <script src="{{ asset('js/moment.js') }}"></script>
+    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/bootstrap-datetimepicker.min.js') }}"></script>
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     @if(preg_match("/^users(\/)\d*/",request()->path()))
     <link href="{{ asset('css/profile.css') }}" rel="stylesheet">
     @endif
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="{{ asset('css/bootstrap-datetimepicker.css') }}" rel="stylesheet">
 
 </head>
 <body>
@@ -84,8 +88,9 @@
 
         @yield('content')
     </div>
-
     <!-- Scripts -->
+    <script src="{{ asset('js/jquery.js') }}"></script>
+    <script src="{{ asset('js/moment.js') }}"></script>
     <script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>

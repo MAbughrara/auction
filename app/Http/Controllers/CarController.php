@@ -42,8 +42,6 @@ class CarController extends Controller
     {
 
         $car= new Car();
-
-
         $car->seller_id=auth()->user()->id;
         $car->model=request('model');
         $car->status=request('status');
