@@ -82,7 +82,7 @@ class UserController extends Controller
      */
     public function update($id)
     {
-        if (auth()->id() == $id)
+        if (auth()->id() == $id){
         $this->validate(request(),[
             'name' => 'required',
             'phone' => 'required|min:10|max:11|unique:users,phone,'.auth()->id(),
@@ -94,6 +94,8 @@ class UserController extends Controller
             'email' => request()->email,
         ]);
         return redirect()->back();
+        }
+        return redirect('/');
     }
 
     /**
@@ -108,8 +110,12 @@ class UserController extends Controller
     }
 
     public function showResetForm(User $user){
+        if (Auth()->id() == $user->id){
         return view('users.reset',compact('user'));
-    }
+        }
+        return redirect('/');
+        }
+
 
     public function changePassword(Request $request){
 
