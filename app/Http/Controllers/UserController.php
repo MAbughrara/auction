@@ -40,7 +40,6 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-//        dd(request());
 
     }
 
@@ -79,7 +78,6 @@ class UserController extends Controller
             'name' => 'required',
             'phone' => 'required|min:10|max:11|unique:users,phone,'.auth()->id(),
             'email' => 'required|unique:users,email,'.auth()->id(),
-//            'password' => 'required|string|min:6|confirmed',
         ]);
         auth()->user()->update([
             'name' => request()->name,
@@ -101,7 +99,6 @@ class UserController extends Controller
     }
 
     public function showResetForm(User $user){
-//        $user=Auth::user();
         return view('users.reset',compact('user'));
     }
 
