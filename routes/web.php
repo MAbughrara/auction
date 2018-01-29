@@ -18,6 +18,9 @@
 Auth::routes();
 
 Route::get('/', 'HomeController@index');
+Route::get('about', function (){
+    return view('about');
+});
 Route::get('users/{id}/password','UserController@showResetForm');
 Route::post('users/{id}/password','UserController@changePassword')->name('changePassword');
 Route::resource('users','UserController');
