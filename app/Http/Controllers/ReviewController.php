@@ -36,6 +36,12 @@ class ReviewController extends Controller
     public function store(Request $request)
     {
 //        dd($request->get('name'));
+        $request->validate([
+            'creator_id' => 'required',
+            'target_id' => 'required',
+            'comment' => 'required',
+            'rate' => 'required|integer|min:1|max:5',
+        ]);
         Review::create([
             'comment' => request()->comment,
             'rate' => request()->rate,
