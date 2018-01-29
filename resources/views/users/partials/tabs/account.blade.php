@@ -1,5 +1,5 @@
 <div role="tabpanel" class="tab-pane" id="account">
-
+    <div>
     <form method="POST" action="/users/{{auth()->id()}}">
         <input type="hidden" name="_method" value="PUT">
         {{csrf_field()}}
@@ -33,26 +33,14 @@
             @endif
         </div>
 
-        {{--<div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">--}}
-        {{--<label for="password">New Password</label>--}}
-
-        {{--<input id="password" type="password" class="form-control" name="password" required>--}}
-
-        {{--@if ($errors->has('password'))--}}
-        {{--<span class="help-block">--}}
-        {{--<strong>{{ $errors->first('password') }}</strong>--}}
-        {{--</span>--}}
-        {{--@endif--}}
-        {{--</div>--}}
-
-        {{--<div class="form-group">--}}
-        {{--<label for="password-confirm">Confirm New Password</label>--}}
-
-
-        {{--<input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>--}}
-        {{--</div>--}}
         <button type="submit" class="btn btn-default">Submit</button>
     </form>
-
+    </div>
+    <br>
+    <div>
+        <a href="/users/{{auth()->id()}}/password">
+        <button type="button" class="btn btn-success btn-sm" > Change Password</button>
+        </a>
+    </div>
 
 </div>

@@ -18,6 +18,8 @@
 Auth::routes();
 
 Route::get('/', 'HomeController@index');
+Route::get('users/{id}/password','UserController@showResetForm');
+Route::post('users/{id}/password','UserController@changePassword')->name('changePassword');
 Route::resource('users','UserController');
 Route::resource('cars','CarController');
 Route::resource('reviews','ReviewController');
