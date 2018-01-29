@@ -34,7 +34,6 @@ Route::prefix('admin')->middleware('admin')->group(function () {
         $brands = \App\Brand::all();
         return view('admin.pages.brands', compact('brands'));
     });
-
 });
 
 Route::get('users/{user}/password','UserController@showResetForm');
