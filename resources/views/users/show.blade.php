@@ -7,7 +7,7 @@
                 <div class="profile-sidebar">
                     <!-- SIDEBAR USERPIC -->
                     <div class="profile-userpic">
-                        <img src="/storage/default-profile.png"
+                        <img src="/storage/profile/default.png"
                              class="img-responsive" alt="">
                     </div>
                     <!-- END SIDEBAR USERPIC -->
@@ -25,8 +25,8 @@
                                     data-target="#addReview">Review
                             </button>
                         </div>
+                    @include('users.partials.addReview')
                 @endunless
-                @include('users.partials.addReview')
                 <!-- END SIDEBAR BUTTONS -->
                     <!-- SIDEBAR MENU -->
                     <div class="profile-usermenu">
@@ -65,6 +65,7 @@
             e.preventDefault();
             $(this).tab('overview')
         });
+        @if(auth()->id() == $user->id)
         $('#account').find('a').click(function (e) {
             e.preventDefault();
             $(this).tab('account')
@@ -73,5 +74,6 @@
             e.preventDefault();
             $(this).tab('purchase')
         })
+        @endif
     </script>
 @endsection

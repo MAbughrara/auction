@@ -29,8 +29,8 @@
                     <div class="review-block">
                         <div class="row">
                             <div class="col-sm-3">
-                                <img src="http://dummyimage.com/60x60/666/ffffff&text=No+Image"
-                                     class="img-rounded">
+                                <img src="/storage/profile/default.png"
+                                     class="img-responsive img-rounded">
                                 <div class="review-block-name"><a
                                             href="/users/{{$review->creator_id}}">{{$user->find($review->creator_id)->name}}</a>
                                 </div>
