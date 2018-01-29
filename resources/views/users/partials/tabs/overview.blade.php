@@ -57,9 +57,12 @@
     @else
         <div class="jumbotron" style="background-color: white">
             <h1>No reviews yet!</h1>
-            <p>be the first</p>
-            <p><a class="btn btn-primary btn-lg" href="#" data-toggle="modal" data-target="#addReview" role="button">Review</a>
-            </p>
+            @unless(auth()->id() == $user->id)
+                <p>be the first</p>
+                <p><a class="btn btn-primary btn-lg" href="#" data-toggle="modal" data-target="#addReview"
+                      role="button">Review</a>
+                    @endunless
+                </p>
         </div>
     @endif
 </div>

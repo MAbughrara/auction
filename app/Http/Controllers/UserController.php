@@ -84,10 +84,10 @@ class UserController extends Controller
      */
     public function update($id)
     {
-        if (!request()->status == NULL){
-            $user = User::where('id',$id);
-            $user->status = false;
-            $user->update();
+        if (request()->status !== NULL){
+            User::where('id',$id)->update([
+                'status' => request()->status
+            ]);
             return back();
         }
         if (auth()->id() == $id){
@@ -114,17 +114,10 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        dd($id);
         Bid::where('bidder_id',$id)->delete();
         Car::where('seller_id',$id)->delete();
+        Review::where('creator_id',$id)->orWhere('target_id',$id)->delete();
         User::where('id',$id)->delete();
-        return back();
-    }
-
-    public function statusUpdate($id){
-        $user = User::where('id',$id);
-        $user->status = false;
-        $user->update();
         return back();
     }
 

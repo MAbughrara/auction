@@ -37,10 +37,10 @@
     </form>
     </div>
     <br>
-    <div>
-        <a href="/users/{{auth()->id()}}/password">
-        <button type="button" class="btn btn-success btn-sm" > Change Password</button>
-        </a>
-    </div>
+    {{--<div>--}}
+        {{--<a href="/users/{{auth()->id()}}/password">--}}
+        {{--<button type="button" class="btn btn-success btn-sm" > Change Password</button>--}}
+        {{--</a>--}}
+    {{--</div>--}}
 
 </div>
