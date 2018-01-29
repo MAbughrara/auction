@@ -12,6 +12,14 @@ use Illuminate\Support\Str;
 
 class UserController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth')->except([
+            'show',
+            'index',
+        ]);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -74,6 +82,7 @@ class UserController extends Controller
      */
     public function update($id)
     {
+        if (auth()->id() == $id)
         $this->validate(request(),[
             'name' => 'required',
             'phone' => 'required|min:10|max:11|unique:users,phone,'.auth()->id(),
