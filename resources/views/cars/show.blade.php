@@ -8,12 +8,15 @@
         .bold{
             font-weight: bold;
         }
+        .carShow{
+           min-height: 800px;
+           padding-top: 50px;
+        }
+
     </style>
-    <div class="container">
-        <div class="row">
-
+    <div class="container carShow">
+        <div class="row ">
                     <div class="col-sm-9">
-
                         <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
                             <!-- Indicators -->
                             <ol class="carousel-indicators">
