@@ -59,11 +59,14 @@
                     <a href="#" class="list-group-item ">
                       <span class="bold">Brand: </span>  {{$car->brand->name}}
                     </a>
-                    <a href="#" class="list-group-item">
-                        <span>KM: </span> {{$car->km}}
+                    <a href="#" class="list-group-item ">
+                      <span class="bold">Year: </span>  {{$car->year}}
                     </a>
                     <a href="#" class="list-group-item">
-                        <span>Bid starts: </span> {{$car->first_bid}} $
+                        <span class="bold">KM: </span> {{$car->km}}
+                    </a>
+                    <a href="#" class="list-group-item">
+                        <span class="bold">Bid starts: </span> {{$car->first_bid}} $
                     </a>
                 </div>
                 </div>
