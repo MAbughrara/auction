@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Bid;
+use App\Car;
 use App\Review;
 use App\User;
 use Illuminate\Http\Request;
@@ -107,7 +108,11 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        Bid::where('bidder_id',$id)->destroy();
+//        dd(User::where('id',$id)->get());
+        Bid::where('bidder_id',$id)->delete();
+        Car::where('seller_id',$id)->delete();
+        User::where('id',$id)->delete();
+        return back();
     }
 
     public function showResetForm(User $user){
