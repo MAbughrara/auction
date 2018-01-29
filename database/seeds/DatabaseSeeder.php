@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
              ReviewsTableSeeder::class,
              RolesTableSeeder::class,
              BrandTableSeeder::class,
+             CarTableSeeder::class,
              RoleUserTableSeeder::class
 
          ]);
