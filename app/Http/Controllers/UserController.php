@@ -84,6 +84,12 @@ class UserController extends Controller
      */
     public function update($id)
     {
+        if (!request()->status == NULL){
+            $user = User::where('id',$id);
+            $user->status = false;
+            $user->update();
+            return back();
+        }
         if (auth()->id() == $id){
         $this->validate(request(),[
             'name' => 'required',
@@ -108,10 +114,17 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-//        dd(User::where('id',$id)->get());
+        dd($id);
         Bid::where('bidder_id',$id)->delete();
         Car::where('seller_id',$id)->delete();
         User::where('id',$id)->delete();
+        return back();
+    }
+
+    public function statusUpdate($id){
+        $user = User::where('id',$id);
+        $user->status = false;
+        $user->update();
         return back();
     }
 

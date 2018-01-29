@@ -41,6 +41,7 @@ Route::prefix('admin')->middleware('admin')->group(function () {
 
 Route::get('users/{user}/password','UserController@showResetForm');
 Route::post('users/{id}/password','UserController@changePassword')->name('changePassword');
+Route::put('users/{id}/status', 'UserController@statusUpdate')->middleware('admin');
 Route::resource('users','UserController');
 Route::resource('cars','CarController');
 Route::resource('reviews','ReviewController');

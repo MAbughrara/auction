@@ -16,14 +16,14 @@
                         <td>{{$user->name}}</td>
                         <td>
                             <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#suspend">Suspend</button>
-                            @include('admin.modal',['id'=>'suspend','method'=>'PUT'])
                         </td>
                         <td>
                             <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete">Delete</button>
-                            @include('admin.modal',['id'=>'delete','method'=>'DELETE'])
                         </td>
                     </tr>
                 @endforeach
+                @include('admin.modal',['id'=>'suspend','method'=>'PUT'])
+                @include('admin.modal',['id'=>'delete','method'=>'DELETE'])
             </table>
         </div>
     </div>
