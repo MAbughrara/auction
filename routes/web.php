@@ -38,6 +38,7 @@ Route::prefix('admin')->middleware('admin')->group(function () {
 });
 
 
+
 Route::get('users/{user}/password','UserController@showResetForm');
 Route::post('users/{id}/password','UserController@changePassword')->name('changePassword');
 Route::resource('users','UserController');
