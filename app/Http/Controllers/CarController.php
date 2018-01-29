@@ -70,6 +70,7 @@ class CarController extends Controller
      */
     public function show(Car $car)
     {
+//        dd($car->lastBidder()->name);
         $images= Storage::files('public/'.$car->id);
 
         return view('cars.show',compact('car'),compact('images'));

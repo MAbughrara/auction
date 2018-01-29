@@ -34,7 +34,9 @@ Route::prefix('admin')->middleware('admin')->group(function () {
         $brands = \App\Brand::all();
         return view('admin.pages.brands', compact('brands'));
     });
+
 });
+
 
 Route::get('users/{user}/password','UserController@showResetForm');
 Route::post('users/{id}/password','UserController@changePassword')->name('changePassword');
@@ -43,3 +45,4 @@ Route::resource('cars','CarController');
 Route::resource('reviews','ReviewController');
 Route::resource('Bids','BidController');
 Route::resource('brands','BrandController');
+Route::post('/bids/add/{car}','BidController@add');

@@ -45,8 +45,11 @@
                             </a>
                         </div>
                     </div>
+
+
             <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
-                <div class="list-group">
+                <div class="row">
+                <div class="list-group col-xs-12 col-sm-12 ">
                     <a href="#" class="list-group-item active">
                         Details
                     </a>
@@ -57,11 +60,51 @@
                         <span>KM: </span> {{$car->km}}
                     </a>
                     <a href="#" class="list-group-item">
-                        <span>Bid starts: </span> {{$car->first_bid}} $$
+                        <span>Bid starts: </span> {{$car->first_bid}} $
                     </a>
-
                 </div>
-            </div>
+                </div>
+                <div class="row">
+                    <div class="list-group col-xs-12 col-sm-12 ">
+                        <a href="#" class="list-group-item active">
+                           Bids
+                        </a>
+                        <a href="#" class="list-group-item ">
+                            <span class="bold">last Bid: </span>
+                            @if(!is_null( $car->lastBid()))
+                                {{$car->lastBid()->bid_val}}
+                            @endif
+                            <p class="bold">by: </p>
+                            @if(!is_null( $car->lastBidder()))
+                                {{$car->lastBidder()->name}}
+                            @endif
+
+                            <p class="bold">
+                            @if(!is_null( $car->lastBid()))
+                                {{($car->lastBid()->created_at->diffForHumans())}}
+                                @endif
+                            </p>
+                        </a>
+                        <a href="#" class="list-group-item ">
+                            <button class="btn btn-success" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                                Place Bid
+                            </button>
+                            <div class="collapse" id="collapseExample">
+                                <div class="well">
+                                    <form class="form-inline" action="/bids/add/{{$car->id}}" method="post">
+                                        <div class="form-group">
+                                            {{csrf_field()}}
+                                            <input  name="bid_val" type="number" class="form-control" id="exampleInputEmail3" placeholder="raise the Bid">
+                                        </div>
+                                        <button type="submit" class="btn btn-default">Bid</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </a>
+
+                    </div>
+                </div>
+                </div>
         </div>
     </div>
 @endsection

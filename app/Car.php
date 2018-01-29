@@ -12,12 +12,15 @@ class Car extends Model
     public function bids(){
         return  $this->hasMany(Bid::class);
     }
+
     public function brand(){
         return  $this->belongsTo(Brand::class);
     }
+
     public function seller(){
         return  $this->belongsTo(User::class,'seller_id');
     }
+
     public function buyer(){
         return $this->belongsTo(User::class,'buyer_id');
     }
@@ -37,6 +40,22 @@ class Car extends Model
     public function getEndDateAttribute($value)
     {
         return Carbon::parse($value);
+    }
+
+    public function lastBid()
+    {
+        if(!isset($this->bids()->get()->last()->bidder_id)){
+            return null;
+        }
+       return $this->bids()->get()->last();
+    }
+
+    public function lastBidder()
+    {
+        if(!isset($this->bids()->get()->last()->bidder_id)){
+            return null;
+        }
+       return User::find($this->bids()->get()->last()->bidder_id);
     }
 
 }
