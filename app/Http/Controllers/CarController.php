@@ -46,10 +46,9 @@ class CarController extends Controller
         $car->seller_id=auth()->user()->id;
         $car->brand_id=request('brand_id');
         $car->status=request('status');
-        $car->notes=request('notes');
         $car->km=request('km');
         $car->first_bid=request('first_bid');
-        $car->notes=request('note');
+        $car->notes=request('notes');
         $car->end_date=request('end_date');
         $car->year=request('year');
         $car->save();

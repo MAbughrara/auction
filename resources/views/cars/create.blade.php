@@ -61,8 +61,8 @@
                                     </div>
                             <hr>
                             <div class="form-group">
-                                <label for="note">note</label>
-                                <textarea name="note" type="textarea" class="form-control" id="note"></textarea>
+                                <label for="notes">note</label>
+                                <textarea name="notes" type="textarea" class="form-control" id="notes"></textarea>
                             </div>
                             <button type="submit" class="btn btn-default">Submit</button>
                         </form>
