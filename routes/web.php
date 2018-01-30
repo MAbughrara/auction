@@ -46,5 +46,6 @@ Route::resource('users','UserController');
 Route::resource('cars','CarController');
 Route::resource('reviews','ReviewController');
 Route::resource('Bids','BidController');
-Route::resource('brands','BrandController');
 Route::post('/bids/add/{car}','BidController@add');
+Route::get('/bids/getLastBid/{car}','BidController@getLastBid');
+Route::resource('brands','BrandController');

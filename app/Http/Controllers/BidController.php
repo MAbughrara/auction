@@ -35,6 +35,7 @@ class BidController extends Controller
 
         return $car->lastBid()->bid_val;
     }
+
     public function index()
     {
         //

@@ -34,9 +34,7 @@
                                     </div>
                                 </div>
                                 @endforeach
-
                             </div>
-
                             <!-- Controls -->
                             <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
                                 <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
@@ -49,7 +47,6 @@
                         </div>
                     </div>
 
-
             <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
                 <div class="row">
                 <div class="list-group col-xs-12 col-sm-12 ">
@@ -58,6 +55,9 @@
                     </a>
                     <a href="#" class="list-group-item ">
                       <span class="bold">Brand: </span>  {{$car->brand->name}}
+                    </a>
+                    <a href="#" class="list-group-item ">
+                      <span class="bold">Year: </span>  {{$car->status}}
                     </a>
                     <a href="#" class="list-group-item ">
                       <span class="bold">Year: </span>  {{$car->year}}
@@ -113,4 +113,11 @@
                 </div>
         </div>
     </div>
+
+    <script>
+        setInterval(function() {
+
+        }, 1000);
+
+    </script>
 @endsection

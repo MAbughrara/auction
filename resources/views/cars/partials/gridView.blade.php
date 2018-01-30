@@ -1,6 +1,4 @@
-<div class="container car-container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2 car-col">
+
             <div class="panel panel-default">
                 <div class="panel-heading">LATEST CARS</div>
                 <div class="panel-body">
@@ -26,7 +24,4 @@
                     @endforeach
                 </div>
             </div>
-        </div>
-    </div>
-</div>
-<hr>
+      
