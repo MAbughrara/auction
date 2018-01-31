@@ -1,217 +1,115 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap Dashboard by Bootstrapious.com</title>
     <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>Admin Control Panel</title>
-
-    <!-- Bootstrap Core CSS -->
-    <link href="{{asset('css/app.css')}}" rel="stylesheet">
-
-    <!-- MetisMenu CSS -->
-    <link href="{{asset('css/admin/vendor/metisMenu/metisMenu.min.css')}}" rel="stylesheet">
-
-    <!-- Custom CSS -->
-    <link href="{{asset('css/admin/sb-admin-2.css')}}" rel="stylesheet">
-
-    <!-- Morris Charts CSS -->
-    <link href="{{asset('css/admin/vendor/morrisjs/morris.css')}}" rel="stylesheet">
-
-    <!-- Custom Fonts -->
-    <link href="{{asset('css/admin/vendor/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="all,follow">
+    <!-- Bootstrap CSS-->
+    <link rel="stylesheet" href="{{ asset('css/admin/vendor/bootstrap/css/bootstrap.min.css') }}">
+    <!-- Font Awesome CSS-->
+    <link rel="stylesheet" href="{{ asset('css/admin/vendor/font-awesome/css/font-awesome.min.css') }}">
+    <!-- Custom icon font-->
+    <link rel="stylesheet" href="{{ asset('css/admin/fontastic.css') }}">
+    <!-- Google fonts - Roboto -->
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+    <!-- jQuery Circle-->
+    <link rel="stylesheet" href="{{ asset('css/admin/grasp_mobile_progress_circle-1.0.0.min.css') }}">
+    <!-- Custom Scrollbar-->
+    <link rel="stylesheet"
+          href="{{ asset('css/admin/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css') }}">
+    <!-- theme stylesheet-->
+    <link rel="stylesheet" href="{{ asset('css/admin/style.default.css') }}" id="theme-stylesheet">
+    <!-- Custom stylesheet - for your changes-->
+    <link rel="stylesheet" href="{{ asset('css/admin/custom.css') }}">
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="favicon.png">
+    <!-- Tweaks for older IEs--><!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
 </head>
-
 <body>
-
-<div id="wrapper">
-
-    <!-- Navigation -->
-    <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="/admin">Control Panel</a>
-        </div>
-        <!-- /.navbar-header -->
-        <ul class="nav navbar-top-links navbar-left">
-
-            <li>
-                <a href="/">Home</a>
-            </li>
-            <!-- /.dropdown -->
-        </ul>
-        <ul class="nav navbar-top-links navbar-right">
-
-            <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                    <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
-                </a>
-                <ul class="dropdown-menu dropdown-user">
-                    <li>
-                        <a href="{{ route('logout') }}"
-                           onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                            <i class="fa fa-sign-out fa-fw"></i> Logout
-                        </a>
-
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                            {{ csrf_field() }}
-                        </form>
-                    </li>
-                </ul>
-                <!-- /.dropdown-user -->
-            </li>
-            <!-- /.dropdown -->
-        </ul>
-        <!-- /.navbar-top-links -->
-
-        <div class="navbar-default sidebar" role="navigation">
-            <div class="sidebar-nav navbar-collapse">
-                <ul class="nav" id="side-menu">
-                    {{--<li class="sidebar-search">--}}
-                        {{--<div class="input-group custom-search-form">--}}
-                            {{--<input type="text" class="form-control" placeholder="Search...">--}}
-                            {{--<span class="input-group-btn">--}}
-                                {{--<button class="btn btn-default" type="button">--}}
-                                    {{--<i class="fa fa-search"></i>--}}
-                                {{--</button>--}}
-                            {{--</span>--}}
-                        {{--</div>--}}
-                        {{--<!-- /input-group -->--}}
-                    {{--</li>--}}
-                    <li>
-                        <a href="/admin"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
-                    </li>
-                    <li>
-                        <a href="/admin/users"><i class="fa fa-table fa-fw"></i> Users</a>
-                    </li>
-                    <li>
-                        <a href="/admin/brands"><i class="fa fa-table fa-fw"></i> Brands</a>
-                    </li>
-                    <li>
-                        <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Charts<span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li>
-                                <a href="flot.html">Flot Charts</a>
-                            </li>
-                            <li>
-                                <a href="morris.html">Morris.js Charts</a>
-                            </li>
-                        </ul>
-                        <!-- /.nav-second-level -->
-                    </li>
-                    <li>
-                        <a href="tables.html"><i class="fa fa-table fa-fw"></i> Tables</a>
-                    </li>
-                    <li>
-                        <a href="forms.html"><i class="fa fa-edit fa-fw"></i> Forms</a>
-                    </li>
-                    <li>
-                        <a href="#"><i class="fa fa-wrench fa-fw"></i> UI Elements<span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li>
-                                <a href="panels-wells.html">Panels and Wells</a>
-                            </li>
-                            <li>
-                                <a href="buttons.html">Buttons</a>
-                            </li>
-                            <li>
-                                <a href="notifications.html">Notifications</a>
-                            </li>
-                            <li>
-                                <a href="typography.html">Typography</a>
-                            </li>
-                            <li>
-                                <a href="icons.html"> Icons</a>
-                            </li>
-                            <li>
-                                <a href="grid.html">Grid</a>
-                            </li>
-                        </ul>
-                        <!-- /.nav-second-level -->
-                    </li>
-                    <li>
-                        <a href="#"><i class="fa fa-sitemap fa-fw"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li>
-                                <a href="#">Second Level Item</a>
-                            </li>
-                            <li>
-                                <a href="#">Second Level Item</a>
-                            </li>
-                            <li>
-                                <a href="#">Third Level <span class="fa arrow"></span></a>
-                                <ul class="nav nav-third-level">
-                                    <li>
-                                        <a href="#">Third Level Item</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Third Level Item</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Third Level Item</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Third Level Item</a>
-                                    </li>
-                                </ul>
-                                <!-- /.nav-third-level -->
-                            </li>
-                        </ul>
-                        <!-- /.nav-second-level -->
-                    </li>
-                    <li>
-                        <a href="#"><i class="fa fa-files-o fa-fw"></i> Sample Pages<span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li>
-                                <a href="blank.html">Blank Page</a>
-                            </li>
-                            <li>
-                                <a href="login.html">Login Page</a>
-                            </li>
-                        </ul>
-                        <!-- /.nav-second-level -->
-                    </li>
-                </ul>
+<!-- Side Navbar -->
+<nav class="side-navbar">
+    <div class="side-navbar-wrapper">
+        <div class="sidenav-header d-flex align-items-center justify-content-center">
+            <div class="sidenav-header-inner text-center"><img src="{{ asset('img/avatar-1.jpg') }}" alt="person"
+                                                               class="img-fluid rounded-circle">
+                <h2 class="h5 text-uppercase">Anderson Hardy</h2><span class="text-uppercase">Web Developer</span>
             </div>
-            <!-- /.sidebar-collapse -->
+            <div class="sidenav-header-logo"><a href="index.html" class="brand-small text-center">
+                    <strong>B</strong><strong class="text-primary">D</strong></a></div>
         </div>
-        <!-- /.navbar-static-side -->
-    </nav>
-
-    <div id="page-wrapper">
-        @yield('content')
+        <div class="main-menu">
+            <ul id="side-main-menu" class="side-menu list-unstyled">
+                <li class="active"><a href="/admin"> <i class="icon-home"></i><span>Home</span></a></li>
+                <li><a href="/admin/users"><i class="icon-form"></i><span>Users</span></a></li>
+                <li><a href="/admin/brands"><i class="icon-form"></i><span>Brands</span></a></li>
+                <li><a href="/admin/forms"><i class="icon-form"></i><span>Forms</span></a></li>
+                <li><a href="/admin/charts"><i class="icon-presentation"></i><span>Charts</span></a></li>
+                <li><a href="/admin/tables"> <i class="icon-grid"> </i><span>Tables  </span></a></li>
+                <li><a href="/admin/login"> <i
+                                class="icon-interface-windows"></i><span>Login page                        </span></a>
+                </li>
+                <li><a href="#"> <i class="icon-mail"></i><span>Demo</span>
+                        <div class="badge badge-warning">6 New</div>
+                    </a></li>
+            </ul>
+        </div>
+        <div class="admin-menu">
+            <ul id="side-admin-menu" class="side-menu list-unstyled">
+                <li><a href="#pages-nav-list" data-toggle="collapse" aria-expanded="false"><i
+                                class="icon-interface-windows"></i><span>Dropdown</span>
+                        <div class="arrow pull-right"><i class="fa fa-angle-down"></i></div>
+                    </a>
+                    <ul id="pages-nav-list" class="collapse list-unstyled">
+                        <li><a href="#">Page 1</a></li>
+                        <li><a href="#">Page 2</a></li>
+                        <li><a href="#">Page 3</a></li>
+                        <li><a href="#">Page 4</a></li>
+                    </ul>
+                </li>
+                <li><a href="#"> <i class="icon-screen"> </i><span>Demo</span></a></li>
+                <li><a href="#"> <i class="icon-flask"> </i><span>Demo</span>
+                        <div class="badge badge-info">Special</div>
+                    </a></li>
+                <li><a href=""> <i class="icon-flask"> </i><span>Demo</span></a></li>
+                <li><a href=""> <i class="icon-picture"> </i><span>Demo</span></a></li>
+            </ul>
+        </div>
     </div>
-    <!-- /#page-wrapper -->
-
-</div>
-<!-- /#wrapper -->
-
-<script src="{{ asset('js/jquery.js') }}"></script>
-<script src="{{ asset('js/app.js') }}"></script>
-
-<!-- Metis Menu Plugin JavaScript -->
-<script src="{{asset('css/admin/vendor/metisMenu/metisMenu.min.js')}}"></script>
-
-<!-- Morris Charts JavaScript -->
-<script src="{{asset('css/admin/vendor/raphael/raphael.min.js')}}"></script>
-<script src="{{asset('css/admin/vendor/morrisjs/morris.min.js')}}"></script>
-<script src="{{asset('js/admin/morris-data.js')}}"></script>
-
-<!-- Custom Theme JavaScript -->
-<script src="{{asset('js/admin/sb-admin-2.js')}}"></script>
-
+</nav>
+@yield('content')
+<!-- Javascript files-->
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
+<script src="{{ asset('css/admin/vendor/bootstrap/js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('css/admin/vendor/jquery.cookie/jquery.cookie.js') }}"></script>
+<script src="{{ asset('js/admin/grasp_mobile_progress_circle-1.0.0.min.js') }}"></script>
+<script src="{{ asset('css/admin/vendor/jquery-validation/jquery.validate.min.js') }}"></script>
+<script src="{{ asset('css/admin/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js') }}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+<script src="{{ asset('js/admin/charts-home.js') }}"></script>
+<script src="{{ asset('js/admin/front.js') }}"></script>
+<!-- Google Analytics: change UA-XXXXX-X to be your site's ID.-->
+<!---->
+<script>
+    (function (b, o, i, l, e, r) {
+        b.GoogleAnalyticsObject = l;
+        b[l] || (b[l] =
+            function () {
+                (b[l].q = b[l].q || []).push(arguments)
+            });
+        b[l].l = +new Date;
+        e = o.createElement(i);
+        r = o.getElementsByTagName(i)[0];
+        e.src = '//www.google-analytics.com/analytics.js';
+        r.parentNode.insertBefore(e, r)
+    }(window, document, 'script', 'ga'));
+    ga('create', 'UA-XXXXX-X');
+    ga('send', 'pageview');
+</script>
 </body>
-
 </html>

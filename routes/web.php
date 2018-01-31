@@ -27,12 +27,23 @@ Route::prefix('admin')->middleware('admin')->group(function () {
     });
     Route::get('users' , function (){
         $users = \App\User::all()->slice(1);
-//        dd($users);
-        return view('admin.pages.users', compact('users'));
+        return view('admin.users', compact('users'));
     });
     Route::get('brands' , function (){
         $brands = \App\Brand::all();
-        return view('admin.pages.brands', compact('brands'));
+        return view('admin.brands', compact('brands'));
+    });
+    Route::get('tables' , function (){
+        return view('admin.tables');
+    });
+    Route::get('forms' , function (){
+        return view('admin.forms');
+    });
+    Route::get('charts' , function (){
+        return view('admin.charts');
+    });
+    Route::get('login' , function (){
+        return view('admin.login');
     });
 
 });

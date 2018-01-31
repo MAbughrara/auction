@@ -6,7 +6,9 @@
                 </button>
                 <h4 class="modal-title">Are you sure?</h4>
             </div>
-            <div class="modal-body">
+            <div class="modal-body ">
+            </div>
+            <div class="modal-footer">
                 <form method="POST" action="/users/{{$user->id}}">
                     {{csrf_field()}}
                     {{method_field($method)}}
@@ -15,12 +17,9 @@
                     @elseif($action == 'unsuspend')
                         <input hidden="hidden" name="status" value="1">
                     @endif
-                    <button type="submit" class="btn btn-default btn-danger">Submit</button>
+                    <button type="submit" class="btn btn-default btn-danger center-block">Submit</button>
                 </form>
-            </div>
-            <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                {{--<button type="submit" class="btn btn-primary">Save changes</button>--}}
             </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
