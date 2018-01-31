@@ -58,4 +58,7 @@ class Car extends Model
        return User::find($this->bids()->get()->last()->bidder_id);
     }
 
+    public static function allPurchases(User $user){
+        return Car::where('buyer_id',$user->id)->get();
+    }
 }
