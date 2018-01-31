@@ -64,8 +64,6 @@ class UserController extends Controller
     {
         $cars = Car::where('seller_id',$user->id)->get();
         $purchases = Car::allPurchases($user);
-//        $lastbid = $purchases->lastBid();
-//        dd($lastbid);
         return view('users.show', compact('user','cars','purchases'));
     }
 

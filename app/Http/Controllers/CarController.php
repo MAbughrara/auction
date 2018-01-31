@@ -72,7 +72,8 @@ class CarController extends Controller
     {
 //        dd($car->lastBidder()->name);
         $images= Storage::files('public/'.$car->id);
-
+//        $r = $car->seller()->getResults();
+//        dd($r->name);
         return view('cars.show',compact('car'),compact('images'));
     }
 

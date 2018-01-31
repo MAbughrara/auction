@@ -49,6 +49,28 @@
 
             <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
                 <div class="row">
+                    <div class="list-group col-xs-12 col-sm-12 ">
+                        <a href="#" class="list-group-item active">
+                            Seller
+                        </a>
+                        <a href="/users/{{$car->seller()->getresults()->id}}" class="list-group-item ">
+                            <span class="bold">Name: </span>  {{$car->seller()->getresults()->name}}
+                        </a>
+                        <a href="#" class="list-group-item ">
+                            <span class="bold">Member since: </span>  {{$car->seller()->getresults()->created_at->diffForHumans()}}
+                        </a>
+                        <a href="#" class="list-group-item ">
+                            <span class="bold">Rate: </span>  {{round(\App\Review::avg($car->seller()->getresults()->id),1)}}/5
+                        </a>
+                        <a href="#" class="list-group-item">
+                            <span class="bold">Email: </span> {{$car->seller()->getresults()->email}}
+                        </a>
+                        <a href="#" class="list-group-item">
+                            <span class="bold">Phone: </span> {{$car->seller()->getresults()->phone}}
+                        </a>
+                    </div>
+                </div>
+                <div class="row">
                 <div class="list-group col-xs-12 col-sm-12 ">
                     <a href="#" class="list-group-item active">
                         Details

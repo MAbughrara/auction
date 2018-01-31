@@ -15,7 +15,8 @@ class UsersTableSeeder extends Seeder
             'name' => 'admin',
             'email' => 'admin@auction.ly',
             'phone' => 1900000000,
-            'password' => bcrypt('123456')
+            'password' => bcrypt('123456'),
+            'created_at' => \Carbon\Carbon::today()
         ]);
         Factory(\App\User::class, 10)->create();
     }
