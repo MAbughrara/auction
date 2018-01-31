@@ -2,7 +2,7 @@
     <div class="panel panel-default">
         <div class="panel-heading">LATEST CARS</div>
         <div class="panel-body">
-        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+        <div id="carousel-example-generic" class="carousel slide col-sm-9" data-ride="carousel">
             <!-- Indicators -->
             <ol class="carousel-indicators">
                 @foreach($cars->take(3) as $key=>$car)

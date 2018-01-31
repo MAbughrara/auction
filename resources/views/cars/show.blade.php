@@ -78,17 +78,18 @@
                         <a href="#" class="list-group-item ">
                             <span class="bold">last Bid: </span>
                             @if(!is_null( $car->lastBid()))
-                                {{$car->lastBid()->bid_val}}
+                                <span class="bold lastBid">{{$car->lastBid()->bid_val}}</span>
                             @endif
                             <p class="bold">by: </p>
                             @if(!is_null( $car->lastBidder()))
-                                {{$car->lastBidder()->name}}
+                                <span class="bold lastBidder"> {{$car->lastBidder()->name}}</span>
                             @endif
 
-                            <p class="bold">
+                            <p class="bold ">
                             @if(!is_null( $car->lastBid()))
-                                {{($car->lastBid()->created_at->diffForHumans())}}
+                                    <span class="bold lastBidTime"> {{($car->lastBid()->created_at->diffForHumans())}}</span>
                                 @endif
+
                             </p>
                         </a>
                         <a href="#" class="list-group-item ">
@@ -116,6 +117,29 @@
 
     <script>
         setInterval(function() {
+               $.ajax({
+                url: '/bids/getLastBid/{{$car->id}}',
+                type: 'GET',
+                success: function(response){ // What to do if we succeed
+                    $(".lastBid").html(response);
+                }
+            });
+
+               $.ajax({
+                url: '/bids/getLastBidder/{{$car->id}}',
+                type: 'GET',
+                success: function(response){ // What to do if we succeed
+                    $(".lastBidder").html(response);
+                }
+            });
+
+               $.ajax({
+                url: '/bids/getLastBidTime/{{$car->id}}',
+                type: 'GET',
+                success: function(response){ // What to do if we succeed
+                    $(".lastBidTime").html(response);
+                }
+            });
 
         }, 1000);
 

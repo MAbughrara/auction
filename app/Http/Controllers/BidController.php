@@ -6,6 +6,8 @@ use App\Bid;
 use App\Car;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Response;
+
 
 class BidController extends Controller
 {
@@ -34,6 +36,15 @@ class BidController extends Controller
     public function getLastBid(Car $car){
 
         return $car->lastBid()->bid_val;
+    }
+    public function getLastBidTime(Car $car){
+
+        return $car->lastBid()->created_at->diffForHumans();
+    }
+
+    public function getLastBidder(Car $car){
+
+        return $car->lastBidder()->name;
     }
 
     public function index()
