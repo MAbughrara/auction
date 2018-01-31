@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
              RolesTableSeeder::class,
              BrandTableSeeder::class,
              CarTableSeeder::class,
+             BidsTableSeeder::class,
              RoleUserTableSeeder::class
 
          ]);
