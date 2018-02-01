@@ -22,7 +22,9 @@ class CarTableSeeder extends Seeder
             'km'=>'100000',
             'first_bid'=>'13000',
             'end_date'=>Carbon\Carbon::tomorrow(),
-            'year'=>Carbon\Carbon::tomorrow()->subYear(10)
+            'year'=>Carbon\Carbon::tomorrow()->subYear(10),
+            'updated_at'=>Carbon\Carbon::now(),
+            'created_at'=>Carbon\Carbon::now(),
         ]);
 
         DB::table('cars')->insert([
@@ -34,7 +36,9 @@ class CarTableSeeder extends Seeder
             'km'=>'150000',
             'first_bid'=>'7000',
             'end_date'=>Carbon\Carbon::tomorrow(),
-            'year'=>Carbon\Carbon::tomorrow()->subYear(5)
+            'year'=>Carbon\Carbon::tomorrow()->subYear(5),
+            'updated_at'=>Carbon\Carbon::now(),
+            'created_at'=>Carbon\Carbon::now(),
         ]);
         DB::table('cars')->insert([
             'id'=>3,
@@ -45,7 +49,9 @@ class CarTableSeeder extends Seeder
             'km'=>'50000',
             'first_bid'=>'17000',
             'end_date'=>Carbon\Carbon::tomorrow(),
-            'year'=>Carbon\Carbon::tomorrow()->subYear(13)
+            'year'=>Carbon\Carbon::tomorrow()->subYear(13),
+            'updated_at'=>Carbon\Carbon::now(),
+            'created_at'=>Carbon\Carbon::now(),
         ]);
         DB::table('cars')->insert([
             'id'=>4,
@@ -56,7 +62,9 @@ class CarTableSeeder extends Seeder
             'km'=>'40000',
             'first_bid'=>'14300',
             'end_date'=>Carbon\Carbon::tomorrow(),
-            'year'=>Carbon\Carbon::tomorrow()->subYear(10)
+            'year'=>Carbon\Carbon::tomorrow()->subYear(10),
+            'updated_at'=>Carbon\Carbon::now(),
+            'created_at'=>Carbon\Carbon::now(),
         ]);
         DB::table('cars')->insert([
             'id'=>5,
@@ -67,7 +75,9 @@ class CarTableSeeder extends Seeder
             'km'=>'50000',
             'first_bid'=>'17000',
             'end_date'=>Carbon\Carbon::tomorrow(),
-            'year'=>Carbon\Carbon::tomorrow()->subYear(13)
+            'year'=>Carbon\Carbon::tomorrow()->subYear(13),
+            'updated_at'=>Carbon\Carbon::now(),
+            'created_at'=>Carbon\Carbon::now(),
         ]);
         DB::table('cars')->insert([
             'id'=>6,
@@ -78,7 +88,9 @@ class CarTableSeeder extends Seeder
             'km'=>'50000',
             'first_bid'=>'17000',
             'end_date'=>Carbon\Carbon::tomorrow(),
-            'year'=>Carbon\Carbon::tomorrow()->subYear(13)
+            'year'=>Carbon\Carbon::tomorrow()->subYear(13),
+            'updated_at'=>Carbon\Carbon::now(),
+            'created_at'=>Carbon\Carbon::now(),
         ]);
         DB::table('cars')->insert([
             'id'=>7,
@@ -89,7 +101,9 @@ class CarTableSeeder extends Seeder
             'km'=>'50000',
             'first_bid'=>'17000',
             'end_date'=>Carbon\Carbon::tomorrow(),
-            'year'=>Carbon\Carbon::tomorrow()->subYear(13)
+            'year'=>Carbon\Carbon::tomorrow()->subYear(13),
+            'updated_at'=>Carbon\Carbon::now(),
+            'created_at'=>Carbon\Carbon::now(),
         ]);
         DB::table('cars')->insert([
             'id'=>8,
@@ -100,7 +114,9 @@ class CarTableSeeder extends Seeder
             'km'=>'50000',
             'first_bid'=>'17000',
             'end_date'=>Carbon\Carbon::tomorrow(),
-            'year'=>Carbon\Carbon::tomorrow()->subYear(13)
+            'year'=>Carbon\Carbon::tomorrow()->subYear(13),
+            'updated_at'=>Carbon\Carbon::now(),
+            'created_at'=>Carbon\Carbon::now(),
         ]);
         DB::table('cars')->insert([
             'id'=>9,
@@ -111,7 +127,9 @@ class CarTableSeeder extends Seeder
             'km'=>'50000',
             'first_bid'=>'17000',
             'end_date'=>Carbon\Carbon::tomorrow(),
-            'year'=>Carbon\Carbon::tomorrow()->subYear(13)
+            'year'=>Carbon\Carbon::tomorrow()->subYear(13),
+            'updated_at'=>Carbon\Carbon::now(),
+            'created_at'=>Carbon\Carbon::now(),
         ]);
         DB::table('cars')->insert([
             'id'=>10,
@@ -122,7 +140,9 @@ class CarTableSeeder extends Seeder
             'km'=>'50000',
             'first_bid'=>'17000',
             'end_date'=>Carbon\Carbon::tomorrow(),
-            'year'=>Carbon\Carbon::tomorrow()->subYear(13)
+            'year'=>Carbon\Carbon::tomorrow()->subYear(13),
+            'updated_at'=>Carbon\Carbon::now(),
+            'created_at'=>Carbon\Carbon::now(),
         ]);
 
     }

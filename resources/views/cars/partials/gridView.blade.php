@@ -1,4 +1,3 @@
-
             <div class="panel panel-default">
                 <div class="panel-heading">LATEST CARS</div>
                 <div class="panel-body">

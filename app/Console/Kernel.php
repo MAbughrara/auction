@@ -2,6 +2,8 @@
 
 namespace App\Console;
 
+use App\Car;
+use Carbon\Carbon;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -24,8 +26,18 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-//         $schedule->command('inspire')
-//                  ->hourly();
+        $schedule->call(function () {
+            $cars=Car::where('end_date','<',Carbon::now()->toDateTimeString())->get();
+            $cars->map(function ($car) {
+                if($car->lastbidder()){
+                    $buyer_id=($car->lastbidder())->id;
+                    $car->update([
+                        'buyer_id'=>$buyer_id,
+                    ]);
+                }
+
+            });
+        })->everyMinute();
     }
 
     /**

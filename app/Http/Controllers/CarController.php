@@ -70,7 +70,7 @@ class CarController extends Controller
      */
     public function show(Car $car)
     {
-//        dd($car->lastBidder()->name);
+
         $images= Storage::files('public/'.$car->id);
 //        $r = $car->seller()->getResults();
 //        dd($r->name);
