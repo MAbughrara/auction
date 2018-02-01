@@ -1,4 +1,3 @@
-<div class="row ">
     <div class="panel panel-default">
         <div class="panel-heading">LATEST CARS</div>
         <div class="panel-body">
@@ -33,5 +32,5 @@
                 <span class="sr-only">Next</span>
             </a>
     </div>
-</div></div>
 </div>
+    </div>
