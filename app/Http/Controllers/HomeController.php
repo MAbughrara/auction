@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Brand;
 use App\Car;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -25,7 +26,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $cars=Car::all();
+        $cars=Car::where('end_date','>',Carbon::now()->toDateTimeString())->get();
+
         $brands=Brand::all();
         return view('home',compact('cars','brands'));
     }

@@ -15,9 +15,18 @@
                                            class="btn btn-success btn-md btn-block">Details</a>
                                     </p>
                                 </div>
-                                <div class="saleoffrate">
+
+                                   @if( \Carbon\Carbon::parse($car->end_date)->isPast())
+                                        <div class="saleoffrate" style=" background-color: rgba(200, 21, 1, 0.8)">
+                                        <b> Close</b>
+                                        </div>
+                                    @else
+                                    <div class="saleoffrate" style=" background-color: rgba(76, 174, 76, 0.8)">
                                     <b>Live</b>
-                                </div>
+                                    </div>
+
+                                @endif
+
                             </div>
                         </div>
                     @endforeach

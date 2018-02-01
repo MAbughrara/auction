@@ -19,7 +19,7 @@ class CarController extends Controller
      */
     public function index()
     {
-        $cars=Car::all();
+        $cars=Car::all()->where('end_date','>',Carbon::now()->toDateTimeString());
         return view('cars.index',compact('cars'));
     }
 
