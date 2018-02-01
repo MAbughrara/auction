@@ -3,6 +3,7 @@
 namespace App;
 
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 
 class Car extends Model
@@ -61,4 +62,11 @@ class Car extends Model
     public static function allPurchases(User $user){
         return Car::where('buyer_id',$user->id)->get();
     }
+
+//    public function scopeBrandFilter(Collection $cars,$brand_id){
+//
+//        $cars->every(function($car,$kay)use ($brand_id){
+//            return $car->brand_id==$brand_id;
+//        });
+//    }
 }

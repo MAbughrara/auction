@@ -3,7 +3,9 @@
 @section('content')
 <div class="container">
     <div class="row ">
+        <div class="col-md-3">
     @include('cars.partials.search')
+        </div>
     @include('cars.partials.homeSlider')
     </div>
     <div class="row">

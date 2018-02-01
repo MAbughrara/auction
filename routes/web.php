@@ -63,4 +63,5 @@ Route::get('/bids/getLastBidTime/{car}','BidController@getLastBidTime');
 Route::get('/bids/getLastBidder/{car}','BidController@getLastBidder');
 Route::resource('brands','BrandController');
 
+Route::get('/search','SearchController@search');
 Route::post('/search','SearchController@search');
