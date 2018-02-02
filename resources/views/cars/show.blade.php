@@ -106,6 +106,9 @@
                         </a>
                         <a href="#" class="list-group-item ">
                             <span class="bold">Buyer: {{$car->buyer()->getresults()->name}}</span>
+                            @if(!is_null( $car->lastBid()))
+                                <span class="bold lastBid">Price: {{$car->lastBid()->bid_val}}</span>
+                            @endif
                         </a>
                     </div>
                 </div>
