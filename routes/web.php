@@ -61,8 +61,8 @@ Route::put('users/{id}/status', 'UserController@statusUpdate')->middleware('admi
 Route::resource('users','UserController');
 Route::resource('cars','CarController');
 Route::resource('reviews','ReviewController');
-Route::resource('Bids','BidController');
 Route::post('/bids/add/{car}','BidController@add');
+Route::resource('Bids','BidController');
 Route::get('/bids/getLastBid/{car}','BidController@getLastBid');
 Route::get('/bids/getLastBidTime/{car}','BidController@getLastBidTime');
 Route::get('/bids/getLastBidder/{car}','BidController@getLastBidder');

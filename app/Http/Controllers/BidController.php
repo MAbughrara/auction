@@ -18,7 +18,16 @@ class BidController extends Controller
      */
 
 
-    public function add(Car $car){
+
+    public function add(Car $car,Request $request){
+
+        if (!Auth::check()) {
+            return redirect('/login');
+        }
+
+         $request->validate([
+            'bid_val' => 'required',
+        ]);
         if(request('bid_val') <1){ return redirect()->back();}
         $bidVal=$car->first_bid;
         if(isset($car->lastBid()->bid_val)){
