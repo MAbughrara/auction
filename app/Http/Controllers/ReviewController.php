@@ -30,31 +30,34 @@ class ReviewController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-//        dd($request->get('name'));
+
         $request->validate([
             'creator_id' => 'required',
             'target_id' => 'required',
             'comment' => 'required',
             'rate' => 'required|integer|min:1|max:5',
         ]);
-        Review::create([
-            'comment' => request()->comment,
-            'rate' => request()->rate,
-            'creator_id' => auth()->id(),
-            'target_id' => request()->target_id,
-        ]);
+
+
+        $review = new Review;
+        $review->creator_id = request('creator_id');
+        $review->target_id = request('target_id');
+        $review->comment = request('comment');
+        $review->rate = request('rate');
+        $review->save();
+
         return redirect()->back();
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function show(Review $id)
@@ -65,7 +68,7 @@ class ReviewController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -76,19 +79,31 @@ class ReviewController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function update($id)
+    public function update($id, Request $request)
     {
-        //
+        $request->validate([
+            'creator_id' => 'required',
+            'target_id' => 'required',
+            'comment' => 'required',
+            'rate' => 'required|integer|min:1|max:5',
+        ]);
+
+        Review::where('id', $id)->update([
+            'comment' => request('comment'),
+            'rate' => request('rate')
+        ]);
+
+        return redirect()->back();
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

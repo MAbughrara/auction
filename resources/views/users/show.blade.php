@@ -19,14 +19,24 @@
                     </div>
                     <!-- END SIDEBAR USER TITLE -->
                     <!-- SIDEBAR BUTTONS -->
-                    @unless(auth()->id() == $user->id)
+                    @if(!$user->reviewed()->where('creator_id',auth()->id())->get())
+
+                        @unless(auth()->id() == $user->id)
+                            <div class="profile-userbuttons">
+                                <button type="button" class="btn btn-success btn-sm" data-toggle="modal"
+                                        data-target="#addReview">Review
+                                </button>
+                            </div>
+                            @include('users.partials.addReview',['action'=>''])
+                        @endunless
+                    @else
                         <div class="profile-userbuttons">
                             <button type="button" class="btn btn-success btn-sm" data-toggle="modal"
-                                    data-target="#addReview">Review
+                                    data-target="#addReview">Edit Review
                             </button>
                         </div>
-                    @include('users.partials.addReview')
-                @endunless
+                    @include('users.partials.addReview',['action'=>'edit'])
+                @endif
                 <!-- END SIDEBAR BUTTONS -->
                     <!-- SIDEBAR MENU -->
                     <div class="profile-usermenu">
