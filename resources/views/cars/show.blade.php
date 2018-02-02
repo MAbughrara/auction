@@ -16,9 +16,9 @@
         }
 
     </style>
-    <div class="container carShow">
+    <div class="container-fluid carShow">
         <div class="row ">
-            <div class="list-group col-xs-12 col-sm-2 ">
+            <div class="list-group col-xs-12 col-sm-2 col-sm-offset-1 ">
                 <a href="#" class="list-group-item active">
                     Seller
                 </a>
@@ -40,7 +40,7 @@
                 </a>
             </div>
 
-            <div class="col-sm-8">
+            <div class="col-sm-6">
                 <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
                     <!-- Indicators -->
                     <ol class="carousel-indicators">
@@ -77,7 +77,7 @@
                 <div class="row">
                 </div>
                 <div class="row">
-                    <div class="list-group col-xs-12 col-sm-12 ">
+                    <div class="list-group ">
                         <a href="#" class="list-group-item active">
                             Details
                         </a>
@@ -100,7 +100,7 @@
                 </div>
                 @if(\App\Car::hasBuyer($car))
                 <div class="row">
-                    <div class="list-group col-xs-12 col-sm-12 ">
+                    <div class="list-group">
                         <a href="#" class="list-group-item list-group-item-danger active">
                             Closed
                         </a>
@@ -114,7 +114,7 @@
                 </div>
                 @else
                 <div class="row">
-                    <div class="list-group col-xs-12 col-sm-12 ">
+                    <div class="list-group ">
                         <a href="#" class="list-group-item active">
                             Bids
                         </a>
