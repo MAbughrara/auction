@@ -100,7 +100,7 @@
                 <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center justify-content-start">
                     <li class="nav-item"><a href="/" class="nav-link logout"><span
                                     class="fa fa-home"></span> Home</a></li>
-                    <li class="nav-item"><a href="/car/create" class="nav-link"><span
+                    <li class="nav-item"><a href="/cars/create" class="nav-link"><span
                                     class="fa fa-plus"> Add Auction</span></a></li>
                 </ul>
                 <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center justify-content-end">

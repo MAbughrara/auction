@@ -53,7 +53,7 @@
                         <li><a href="/admin">Control Panel</a></li>
                         @endif
                         @auth
-                        <li><a href="/cars/create">  <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Bid</a></li>
+                        <li><a href="/cars/create">  <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Auction</a></li>
                         @endauth
                     </ul>
 
