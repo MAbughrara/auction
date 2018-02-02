@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Bid;
 use App\Brand;
 use App\Car;
 use Carbon\Carbon;
@@ -111,6 +112,7 @@ class CarController extends Controller
      */
     public function destroy(Car $car)
     {
+        Bid::where('car_id',$car->id)->delete();
         $car->delete();
         return back();
     }
