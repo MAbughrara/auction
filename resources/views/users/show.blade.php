@@ -19,7 +19,7 @@
                     </div>
                     <!-- END SIDEBAR USER TITLE -->
                     <!-- SIDEBAR BUTTONS -->
-                    @if(!$user->reviewed()->where('creator_id',auth()->id())->get())
+                    @if($user->reviewed()->where('creator_id',auth()->id())->get()->isempty())
 
                         @unless(auth()->id() == $user->id)
                             <div class="profile-userbuttons">
@@ -30,12 +30,15 @@
                             @include('users.partials.addReview',['action'=>''])
                         @endunless
                     @else
-                        <div class="profile-userbuttons">
-                            <button type="button" class="btn btn-success btn-sm" data-toggle="modal"
-                                    data-target="#addReview">Edit Review
-                            </button>
-                        </div>
-                    @include('users.partials.addReview',['action'=>'edit'])
+                        @unless(auth()->id() == $user->id)
+                            <div class="profile-userbuttons">
+                                <button type="button" class="btn btn-success btn-sm" data-toggle="modal"
+                                        data-target="#addReview">Edit Review
+                                </button>
+                            </div>
+                        @include('users.partials.addReview',['action'=>'edit'])
+                    @endunless
+
                 @endif
                 <!-- END SIDEBAR BUTTONS -->
                     <!-- SIDEBAR MENU -->

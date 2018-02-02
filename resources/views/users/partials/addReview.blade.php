@@ -10,10 +10,11 @@
                 @guest
                     <h2>You must <a href="/login"> Sign-in</a> to review this user</h2>
                     @else
-                        <form method="POST" @if($action !== null) @php $review =  $user->reviewed()->where('creator_id', auth()->id())->get()->first() @endphp
+                        @php $review =  $user->reviewed()->where('creator_id', auth()->id())->get()->first() @endphp
+                        <form method="POST" @if($action == "edit" && $review !== null)
                         action="/reviews/{{$review->id}}" @else action="/reviews" @endif>
                             {{csrf_field()}}
-                            @if($action !== null)
+                            @if($action == 'edit')
                                 <input type="hidden" name="_method" value="PUT">
                             @endif
                             <input type="text" hidden="hidden" name="target_id" value="{{$user->id}}">
@@ -21,20 +22,20 @@
                             <div class="form-group">
                                 <label for="comment">Comment</label>
                                 <input type="text" class="form-control" name="comment"
-                                       placeholder="Your comment here.." @if($action !== null) value="{{$review->comment}}" @endif >
+                                       placeholder="Your comment here.." @if($action == 'edit' && $review !== null) value="{{$review->comment}}" @endif >
                             </div>
                             <div class="form-group">
                                 <label for="rate">rate</label>
                                 <select class="form-control" name="rate">
-                                    <option value="5" @if($action !== null && $review->rate == 5) selected="selected" @endif>Excellent!</option>
-                                    <option value="4" @if($action !== null && $review->rate == 4) selected="selected" @endif>Good</option>
-                                    <option value="3" @if($action !== null && $review->rate == 3) selected="selected" @endif>Normal</option>
-                                    <option value="2" @if($action !== null && $review->rate == 2) selected="selected" @endif>Bad</option>
-                                    <option value="1" @if($action !== null && $review->rate == 1) selected="selected" @endif>Very Bad</option>
+                                    <option value="5" @if($action == 'edit' && $review !== null && $review->rate == 5) selected="selected" @endif>Excellent!</option>
+                                    <option value="4" @if($action == 'edit' && $review !== null && $review->rate == 4) selected="selected" @endif>Good</option>
+                                    <option value="3" @if($action == 'edit' && $review !== null && $review->rate == 3) selected="selected" @endif>Normal</option>
+                                    <option value="2" @if($action == 'edit' && $review !== null && $review->rate == 2) selected="selected" @endif>Bad</option>
+                                    <option value="1" @if($action == 'edit' && $review !== null && $review->rate == 1) selected="selected" @endif>Very Bad</option>
                                 </select>
                             </div>
 
-                            <button type="submit" class="btn btn-default">Submit</button>
+                            <button type="submit" class="btn btn-default btn-success">Submit</button>
                         </form>
                         @endguest
             </div>
