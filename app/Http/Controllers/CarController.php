@@ -12,6 +12,12 @@ use Illuminate\Http\File;
 
 class CarController extends Controller
 {
+    public function __constructor(){
+        $this->middleware('auth')->except([
+            'index',
+            'show'
+        ]);
+    }
     /**
      * Display a listing of the resource.
      *
