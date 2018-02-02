@@ -23,7 +23,8 @@ Route::get('about', function (){
 });
 Route::prefix('admin')->middleware('admin')->group(function () {
     Route::get('/', function () {
-            return view('admin.index');
+        $cars = \App\Car::all();
+            return view('admin.index',compact('cars'));
     });
     Route::get('users' , function (){
         $users = \App\User::all()->slice(1);

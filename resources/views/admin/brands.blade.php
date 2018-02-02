@@ -4,13 +4,13 @@
         <section class="charts">
             <div class="container-fluid">
                 <header>
-                    <h1 class="h3">Users</h1>
+                    <h1 class="h3">Brands</h1>
                 </header>
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-header d-flex align-items-center">
-                                <h2 class="h5 display">All Users</h2>
+                                <h2 class="h5 display">All Brands</h2>
                             </div>
                             <div class="card-body">
                                 <div class="row">

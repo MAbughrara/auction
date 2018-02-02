@@ -88,6 +88,11 @@ class Car extends Model
         return Car::where('buyer_id', '!=', null)->count();
     }
 
+    public static function carStatusCount($type)
+    {
+        return Car::where('status', '=', $type)->count();
+    }
+
     public static function hasBuyer(Car $car)
     {
         if ($car->buyer()->get()->isEmpty())

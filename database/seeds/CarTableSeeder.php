@@ -88,7 +88,7 @@ class CarTableSeeder extends Seeder
             'km'=>'50000',
             'first_bid'=>'17000',
             'end_date'=>Carbon\Carbon::tomorrow(),
-            'year'=>Carbon\Carbon::tomorrow()->subYear(13),
+            'year'=>Carbon\Carbon::tomorrow()->subYear(5),
             'updated_at'=>Carbon\Carbon::now(),
             'created_at'=>Carbon\Carbon::now(),
         ]);
@@ -101,7 +101,7 @@ class CarTableSeeder extends Seeder
             'km'=>'50000',
             'first_bid'=>'17000',
             'end_date'=>Carbon\Carbon::tomorrow(),
-            'year'=>Carbon\Carbon::tomorrow()->subYear(13),
+            'year'=>Carbon\Carbon::tomorrow()->subYear(3),
             'updated_at'=>Carbon\Carbon::now(),
             'created_at'=>Carbon\Carbon::now(),
         ]);
@@ -114,7 +114,7 @@ class CarTableSeeder extends Seeder
             'km'=>'50000',
             'first_bid'=>'17000',
             'end_date'=>Carbon\Carbon::tomorrow(),
-            'year'=>Carbon\Carbon::tomorrow()->subYear(13),
+            'year'=>Carbon\Carbon::tomorrow()->subYear(6),
             'updated_at'=>Carbon\Carbon::now(),
             'created_at'=>Carbon\Carbon::now(),
         ]);
@@ -127,7 +127,7 @@ class CarTableSeeder extends Seeder
             'km'=>'50000',
             'first_bid'=>'17000',
             'end_date'=>Carbon\Carbon::tomorrow(),
-            'year'=>Carbon\Carbon::tomorrow()->subYear(13),
+            'year'=>Carbon\Carbon::tomorrow()->subYear(11),
             'updated_at'=>Carbon\Carbon::now(),
             'created_at'=>Carbon\Carbon::now(),
         ]);
@@ -140,7 +140,7 @@ class CarTableSeeder extends Seeder
             'km'=>'50000',
             'first_bid'=>'17000',
             'end_date'=>Carbon\Carbon::tomorrow(),
-            'year'=>Carbon\Carbon::tomorrow()->subYear(13),
+            'year'=>Carbon\Carbon::tomorrow()->subYear(10),
             'updated_at'=>Carbon\Carbon::now(),
             'created_at'=>Carbon\Carbon::now(),
         ]);

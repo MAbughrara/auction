@@ -26,9 +26,13 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $cars=Car::where('end_date','>',Carbon::now()->toDateTimeString())->get();
+        $cars=Car::all();
+        $bestOffer=$cars->sortBy('km')->sortBy('first_bid')->take(3);
+        $closedBids=$cars->filter(function ($car){
+            return Car::hasBuyer($car);
+        });
 
         $brands=Brand::all();
-        return view('home',compact('cars','brands'));
+        return view('home',compact('cars','brands','bestOffer','closedBids'));
     }
 }

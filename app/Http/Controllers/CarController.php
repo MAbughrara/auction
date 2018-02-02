@@ -26,8 +26,15 @@ class CarController extends Controller
      */
     public function index()
     {
-        $cars=Car::all()->where('end_date','>',Carbon::now()->toDateTimeString());
-        return view('cars.index',compact('cars'));
+        $cars=Car::all();
+        $bestOffer=Car::all()->sortBy('km')->sortBy('first_bid')->take(3);
+        $closedBids=$cars->filter(function ($car){
+            return $car->hsaBuyer();
+        });
+
+        dd($closedBids);
+//            ->where('end_date','>',Carbon::now()->toDateTimeString());
+        return view('cars.index',compact('cars','bestOffer'));
     }
 
     /**

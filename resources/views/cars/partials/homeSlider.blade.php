@@ -1,21 +1,21 @@
     <div class="panel panel-default col-sm-9">
-        <div class="panel-heading">LATEST CARS</div>
+        <div class="panel-heading">BEST OFFER</div>
         <div class="panel-body">
         <div id="carousel-example-generic" class="carousel slide " data-ride="carousel">
             <!-- Indicators -->
             <ol class="carousel-indicators">
-                @foreach($cars->take(3) as $key=>$car)
+                @foreach($bestOffer as $key=>$car)
                     <li data-target="#carousel-example-generic" data-slide-to="{{$key}}" class="@if($key==0) active @endif "></li>
                 @endforeach
             </ol>
 
             <!-- Wrapper for slides -->
             <div class="carousel-inner" role="listbox">
-                @foreach($cars->take(3) as $key=>$car)
+                @foreach($bestOffer as $key=>$car)
                     <div class="item @if($key==0) active @endif ">
                         <img src="{{asset('/storage/'.$car->id.'/0.jpg')}}" class="img-responsive carImage" alt="Responsive image">
                         <div class="carousel-caption">
-                            <h2>{{$car->brand->name}} <span class="fa-bold">{{$car->first_bid}}</span></h2>
+                            <h2>{{$car->first_bid}}$</h2>
                             <a href="/cars/{{$car->id}}" type="button"
                                class="btn btn-success btn-md ">GET IT</a>
                     </div>
