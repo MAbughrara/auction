@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Carbon\Carbon;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -56,5 +57,11 @@ class User extends Authenticatable
             return false;
         else
             return true;
+    }
+
+    public static function newLast7Days(){
+        return User::where('created_at','<=',Carbon::now())
+                            ->where('created_at','>',Carbon::now()->subDays(7))
+                            ->count();
     }
 }

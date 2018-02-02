@@ -26,6 +26,8 @@
     <link rel="stylesheet" href="{{ asset('css/admin/custom.css') }}">
     <!-- Favicon-->
     <link rel="shortcut icon" href="favicon.png">
+    <script src="{{ asset('js/admin/Charts.min.js') }}"></script>
+
     <!-- Tweaks for older IEs--><!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
@@ -233,7 +235,6 @@
 <script src="{{ asset('css/admin/vendor/jquery-validation/jquery.validate.min.js') }}"></script>
 <script src="{{ asset('css/admin/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js') }}"></script>
 {{--<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>--}}
-<script src="{{ asset('js/admin/Charts.min.js') }}"></script>
 <script src="{{ asset('js/admin/charts-home.js') }}"></script>
 <script src="{{ asset('js/admin/front.js') }}"></script>
 </body>
