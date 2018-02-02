@@ -50,9 +50,9 @@
                                                 </button>
                                             </td>
                                         </tr>
-                                        @include('admin.modal',['id'=>"s{$user->id}",'method'=>'PUT','action'=>'suspend'])
-                                        @include('admin.modal',['id'=>"u{$user->id}",'method'=>'PUT','action'=>'unsuspend'])
-                                        @include('admin.modal',['id'=>"d{$user->id}",'method'=>'DELETE','action'=>''])                                    @endforeach
+                                        @include('admin.modal',['for'=>'user','id'=>"s{$user->id}",'method'=>'PUT','action'=>'suspend'])
+                                        @include('admin.modal',['for'=>'user','id'=>"u{$user->id}",'method'=>'PUT','action'=>'unsuspend'])
+                                        @include('admin.modal',['for'=>'user','id'=>"d{$user->id}",'method'=>'DELETE','action'=>''])                                    @endforeach
                                     </tbody>
                                 </table>
                             </div>

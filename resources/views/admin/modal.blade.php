@@ -9,7 +9,7 @@
             <div class="modal-body ">
             </div>
             <div class="modal-footer">
-                <form method="POST" action="/users/{{$user->id}}">
+                <form method="POST" @if($for == 'user') action="/users/{{$user->id}}" @elseif($for == 'car') action="/cars/{{$car->id}}" @endif>
                     {{csrf_field()}}
                     {{method_field($method)}}
                     @if($action == 'suspend')

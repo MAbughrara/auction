@@ -35,7 +35,8 @@
 <nav class="side-navbar">
     <div class="side-navbar-wrapper">
         <div class="sidenav-header d-flex align-items-center justify-content-center">
-            <div class="sidenav-header-inner text-center"><img src="{{ asset('storage/profile/default.png') }}" alt="person"
+            <div class="sidenav-header-inner text-center"><img src="{{ asset('storage/profile/default.png') }}"
+                                                               alt="person"
                                                                class="img-fluid rounded-circle">
                 <h2 class="h5 text-uppercase">Administrator</h2>
             </div>
@@ -45,39 +46,40 @@
         <div class="main-menu">
             <ul id="side-main-menu" class="side-menu list-unstyled">
                 <li class="active"><a href="/admin"> <i class="icon-home"></i><span>Home</span></a></li>
-                <li><a href="/admin/users"><i class="icon-form"></i><span>Users</span></a></li>
+                <li><a href="/admin/users"><i class="icon-user"></i><span>Users</span></a></li>
                 <li><a href="/admin/brands"><i class="icon-form"></i><span>Brands</span></a></li>
+                <li><a href="/admin/auctions"><i class="icon-line-chart"></i><span>Auctions</span></a></li>
                 {{--<li><a href="/admin/forms"><i class="icon-form"></i><span>Forms</span></a></li>--}}
                 {{--<li><a href="/admin/charts"><i class="icon-presentation"></i><span>Charts</span></a></li>--}}
                 {{--<li><a href="/admin/tables"> <i class="icon-grid"> </i><span>Tables  </span></a></li>--}}
                 {{--<li><a href="/admin/login"> <i--}}
-                                {{--class="icon-interface-windows"></i><span>Login page                        </span></a>--}}
+                {{--class="icon-interface-windows"></i><span>Login page                        </span></a>--}}
                 {{--</li>--}}
                 {{--<li><a href="#"> <i class="icon-mail"></i><span>Demo</span>--}}
-                        {{--<div class="badge badge-warning">6 New</div>--}}
-                    {{--</a></li>--}}
+                {{--<div class="badge badge-warning">6 New</div>--}}
+                {{--</a></li>--}}
             </ul>
         </div>
         {{--<div class="admin-menu">--}}
-            {{--<ul id="side-admin-menu" class="side-menu list-unstyled">--}}
-                {{--<li><a href="#pages-nav-list" data-toggle="collapse" aria-expanded="false"><i--}}
-                                {{--class="icon-interface-windows"></i><span>Dropdown</span>--}}
-                        {{--<div class="arrow pull-right"><i class="fa fa-angle-down"></i></div>--}}
-                    {{--</a>--}}
-                    {{--<ul id="pages-nav-list" class="collapse list-unstyled">--}}
-                        {{--<li><a href="#">Page 1</a></li>--}}
-                        {{--<li><a href="#">Page 2</a></li>--}}
-                        {{--<li><a href="#">Page 3</a></li>--}}
-                        {{--<li><a href="#">Page 4</a></li>--}}
-                    {{--</ul>--}}
-                {{--</li>--}}
-                {{--<li><a href="#"> <i class="icon-screen"> </i><span>Demo</span></a></li>--}}
-                {{--<li><a href="#"> <i class="icon-flask"> </i><span>Demo</span>--}}
-                        {{--<div class="badge badge-info">Special</div>--}}
-                    {{--</a></li>--}}
-                {{--<li><a href=""> <i class="icon-flask"> </i><span>Demo</span></a></li>--}}
-                {{--<li><a href=""> <i class="icon-picture"> </i><span>Demo</span></a></li>--}}
-            {{--</ul>--}}
+        {{--<ul id="side-admin-menu" class="side-menu list-unstyled">--}}
+        {{--<li><a href="#pages-nav-list" data-toggle="collapse" aria-expanded="false"><i--}}
+        {{--class="icon-interface-windows"></i><span>Dropdown</span>--}}
+        {{--<div class="arrow pull-right"><i class="fa fa-angle-down"></i></div>--}}
+        {{--</a>--}}
+        {{--<ul id="pages-nav-list" class="collapse list-unstyled">--}}
+        {{--<li><a href="#">Page 1</a></li>--}}
+        {{--<li><a href="#">Page 2</a></li>--}}
+        {{--<li><a href="#">Page 3</a></li>--}}
+        {{--<li><a href="#">Page 4</a></li>--}}
+        {{--</ul>--}}
+        {{--</li>--}}
+        {{--<li><a href="#"> <i class="icon-screen"> </i><span>Demo</span></a></li>--}}
+        {{--<li><a href="#"> <i class="icon-flask"> </i><span>Demo</span>--}}
+        {{--<div class="badge badge-info">Special</div>--}}
+        {{--</a></li>--}}
+        {{--<li><a href=""> <i class="icon-flask"> </i><span>Demo</span></a></li>--}}
+        {{--<li><a href=""> <i class="icon-picture"> </i><span>Demo</span></a></li>--}}
+        {{--</ul>--}}
         {{--</div>--}}
     </div>
 </nav>
@@ -87,102 +89,115 @@
         <nav class="navbar">
             <div class="container-fluid">
                 {{--<div class="navbar-holder d-flex align-items-center">--}}
-                    <div class="navbar-header"><a id="toggle-btn" href="#" class="menu-btn"><i
-                                    class="icon-bars"> </i></a><a href="index.html" class="navbar-brand">
+                {{--<div class="navbar-header"><a id="toggle-btn" href="#" class="menu-btn"><i--}}
+                {{--class="icon-bars"> </i></a><a href="index.html" class="navbar-brand">--}}
 
+                {{--</a>--}}
+
+                {{--</div>--}}
+                <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center justify-content-start">
+                    <li class="nav-item"><a href="/" class="nav-link logout"><span
+                                    class="fa fa-home"></span> Home</a></li>
+                    <li class="nav-item"><a href="/car/create" class="nav-link"><span
+                                    class="fa fa-plus"> Add Auction</span></a></li>
+                </ul>
+                <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center justify-content-end">
+                    <li class="nav-item dropdown"><a id="notifications" rel="nofollow" data-target="#" href="#"
+                                                     data-toggle="dropdown" aria-haspopup="true"
+                                                     aria-expanded="false" class="nav-link"><i
+                                    class="fa fa-bell"></i><span class="badge badge-warning">12</span></a>
+                        <ul aria-labelledby="notifications" class="dropdown-menu">
+                            <li><a rel="nofollow" href="#" class="dropdown-item">
+                                    <div class="notification d-flex justify-content-between">
+                                        <div class="notification-content"><i class="fa fa-envelope"></i>You have
+                                            6 new messages
+                                        </div>
+                                        <div class="notification-time">
+                                            <small>4 minutes ago</small>
+                                        </div>
+                                    </div>
+                                </a></li>
+                            <li><a rel="nofollow" href="#" class="dropdown-item">
+                                    <div class="notification d-flex justify-content-between">
+                                        <div class="notification-content"><i class="fa fa-twitter"></i>You have
+                                            2 followers
+                                        </div>
+                                        <div class="notification-time">
+                                            <small>4 minutes ago</small>
+                                        </div>
+                                    </div>
+                                </a></li>
+                            <li><a rel="nofollow" href="#" class="dropdown-item">
+                                    <div class="notification d-flex justify-content-between">
+                                        <div class="notification-content"><i class="fa fa-upload"></i>Server
+                                            Rebooted
+                                        </div>
+                                        <div class="notification-time">
+                                            <small>4 minutes ago</small>
+                                        </div>
+                                    </div>
+                                </a></li>
+                            <li><a rel="nofollow" href="#" class="dropdown-item">
+                                    <div class="notification d-flex justify-content-between">
+                                        <div class="notification-content"><i class="fa fa-twitter"></i>You have
+                                            2 followers
+                                        </div>
+                                        <div class="notification-time">
+                                            <small>10 minutes ago</small>
+                                        </div>
+                                    </div>
+                                </a></li>
+                            <li><a rel="nofollow" href="#" class="dropdown-item all-notifications text-center">
+                                    <strong> <i class="fa fa-bell"></i>view all notifications </strong></a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown"><a id="messages" rel="nofollow" data-target="#" href="#"
+                                                     data-toggle="dropdown" aria-haspopup="true"
+                                                     aria-expanded="false" class="nav-link"><i
+                                    class="fa fa-envelope"></i><span class="badge badge-info">10</span></a>
+                        <ul aria-labelledby="notifications" class="dropdown-menu">
+                            <li><a rel="nofollow" href="#" class="dropdown-item d-flex">
+                                    <div class="msg-profile"><img src="img/avatar-1.jpg" alt="..."
+                                                                  class="img-fluid rounded-circle"></div>
+                                    <div class="msg-body">
+                                        <h3 class="h5">Jason Doe</h3><span>sent you a direct message</span>
+                                        <small>3 days ago at 7:58 pm - 10.06.2014</small>
+                                    </div>
+                                </a></li>
+                            <li><a rel="nofollow" href="#" class="dropdown-item d-flex">
+                                    <div class="msg-profile"><img src="img/avatar-2.jpg" alt="..."
+                                                                  class="img-fluid rounded-circle"></div>
+                                    <div class="msg-body">
+                                        <h3 class="h5">Frank Williams</h3><span>sent you a direct message</span>
+                                        <small>3 days ago at 7:58 pm - 10.06.2014</small>
+                                    </div>
+                                </a></li>
+                            <li><a rel="nofollow" href="#" class="dropdown-item d-flex">
+                                    <div class="msg-profile"><img src="img/avatar-3.jpg" alt="..."
+                                                                  class="img-fluid rounded-circle"></div>
+                                    <div class="msg-body">
+                                        <h3 class="h5">Ashley Wood</h3><span>sent you a direct message</span>
+                                        <small>3 days ago at 7:58 pm - 10.06.2014</small>
+                                    </div>
+                                </a></li>
+                            <li><a rel="nofollow" href="#" class="dropdown-item all-notifications text-center">
+                                    <strong> <i class="fa fa-envelope"></i>Read all messages </strong></a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('logout') }}"
+                           onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();"
+                           class="nav-link logout">Logout
+                            <span class="fa fa-sign-out">
+
+                                </span>
                         </a>
-
-                    </div>
-                    <ul class="nav-menu list-unstyled justify-content-start">
-                        <li class="nav-item"><a href="login.html" class="nav-link logout">Logout<i
-                                        class="fa fa-sign-out"></i></a></li>
-                    </ul>
-                    <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center justify-content-end">
-                        <li class="nav-item dropdown"><a id="notifications" rel="nofollow" data-target="#" href="#"
-                                                         data-toggle="dropdown" aria-haspopup="true"
-                                                         aria-expanded="false" class="nav-link"><i
-                                        class="fa fa-bell"></i><span class="badge badge-warning">12</span></a>
-                            <ul aria-labelledby="notifications" class="dropdown-menu">
-                                <li><a rel="nofollow" href="#" class="dropdown-item">
-                                        <div class="notification d-flex justify-content-between">
-                                            <div class="notification-content"><i class="fa fa-envelope"></i>You have
-                                                6 new messages
-                                            </div>
-                                            <div class="notification-time">
-                                                <small>4 minutes ago</small>
-                                            </div>
-                                        </div>
-                                    </a></li>
-                                <li><a rel="nofollow" href="#" class="dropdown-item">
-                                        <div class="notification d-flex justify-content-between">
-                                            <div class="notification-content"><i class="fa fa-twitter"></i>You have
-                                                2 followers
-                                            </div>
-                                            <div class="notification-time">
-                                                <small>4 minutes ago</small>
-                                            </div>
-                                        </div>
-                                    </a></li>
-                                <li><a rel="nofollow" href="#" class="dropdown-item">
-                                        <div class="notification d-flex justify-content-between">
-                                            <div class="notification-content"><i class="fa fa-upload"></i>Server
-                                                Rebooted
-                                            </div>
-                                            <div class="notification-time">
-                                                <small>4 minutes ago</small>
-                                            </div>
-                                        </div>
-                                    </a></li>
-                                <li><a rel="nofollow" href="#" class="dropdown-item">
-                                        <div class="notification d-flex justify-content-between">
-                                            <div class="notification-content"><i class="fa fa-twitter"></i>You have
-                                                2 followers
-                                            </div>
-                                            <div class="notification-time">
-                                                <small>10 minutes ago</small>
-                                            </div>
-                                        </div>
-                                    </a></li>
-                                <li><a rel="nofollow" href="#" class="dropdown-item all-notifications text-center">
-                                        <strong> <i class="fa fa-bell"></i>view all notifications </strong></a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item dropdown"><a id="messages" rel="nofollow" data-target="#" href="#"
-                                                         data-toggle="dropdown" aria-haspopup="true"
-                                                         aria-expanded="false" class="nav-link"><i
-                                        class="fa fa-envelope"></i><span class="badge badge-info">10</span></a>
-                            <ul aria-labelledby="notifications" class="dropdown-menu">
-                                <li><a rel="nofollow" href="#" class="dropdown-item d-flex">
-                                        <div class="msg-profile"><img src="img/avatar-1.jpg" alt="..."
-                                                                      class="img-fluid rounded-circle"></div>
-                                        <div class="msg-body">
-                                            <h3 class="h5">Jason Doe</h3><span>sent you a direct message</span>
-                                            <small>3 days ago at 7:58 pm - 10.06.2014</small>
-                                        </div>
-                                    </a></li>
-                                <li><a rel="nofollow" href="#" class="dropdown-item d-flex">
-                                        <div class="msg-profile"><img src="img/avatar-2.jpg" alt="..."
-                                                                      class="img-fluid rounded-circle"></div>
-                                        <div class="msg-body">
-                                            <h3 class="h5">Frank Williams</h3><span>sent you a direct message</span>
-                                            <small>3 days ago at 7:58 pm - 10.06.2014</small>
-                                        </div>
-                                    </a></li>
-                                <li><a rel="nofollow" href="#" class="dropdown-item d-flex">
-                                        <div class="msg-profile"><img src="img/avatar-3.jpg" alt="..."
-                                                                      class="img-fluid rounded-circle"></div>
-                                        <div class="msg-body">
-                                            <h3 class="h5">Ashley Wood</h3><span>sent you a direct message</span>
-                                            <small>3 days ago at 7:58 pm - 10.06.2014</small>
-                                        </div>
-                                    </a></li>
-                                <li><a rel="nofollow" href="#" class="dropdown-item all-notifications text-center">
-                                        <strong> <i class="fa fa-envelope"></i>Read all messages </strong></a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item"><a href="login.html" class="nav-link logout">Logout<i
-                                        class="fa fa-sign-out"></i></a></li>
-                    </ul>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            {{ csrf_field() }}
+                        </form>
+                    </li>
+                </ul>
                 {{--</div>--}}
             </div>
         </nav>
@@ -191,11 +206,11 @@
         <div class="container-fluid">
             <ul class="breadcrumb">
                 <li class="breadcrumb-item"><a href="/admin">Home</a></li>
-                <li class="breadcrumb-item active">{{ substr(request()->path(),4,8) }}</li>
+                <li class="breadcrumb-item active">{{ ucfirst(substr(request()->path(),6,8)) }}</li>
             </ul>
         </div>
     </div>
-@yield('content')
+    @yield('content')
     <footer class="main-footer">
         <div class="container-fluid">
             <div class="row">

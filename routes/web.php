@@ -33,6 +33,10 @@ Route::prefix('admin')->middleware('admin')->group(function () {
         $brands = \App\Brand::all();
         return view('admin.brands', compact('brands'));
     });
+    Route::get('auctions' , function (){
+        $cars = \App\Car::all();
+        return view('admin.auctions', compact('cars'));
+    });
     Route::get('tables' , function (){
         return view('admin.tables');
     });
