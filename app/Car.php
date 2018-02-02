@@ -90,7 +90,7 @@ class Car extends Model
 
     public static function hasBuyer(Car $car)
     {
-        if ($car->has('buyer')->get()->isEmpty())
+        if ($car->buyer()->get()->isEmpty())
             return false;
         else
             return true;
