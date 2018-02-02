@@ -62,7 +62,6 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-//        dd($user->reviewed()->where('creator_id', auth()->id())->get());
         $cars = Car::where('seller_id',$user->id)->get();
         $purchases = Car::allPurchases($user);
         return view('users.show', compact('user','cars','purchases'));

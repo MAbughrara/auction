@@ -19,7 +19,6 @@ class BidController extends Controller
 
 
     public function add(Car $car){
-//        dd(request()->all());
         if(request('bid_val') <1){ return redirect()->back();}
         $bidVal=$car->first_bid;
         if(isset($car->lastBid()->bid_val)){
