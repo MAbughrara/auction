@@ -73,17 +73,27 @@ class Car extends Model
 
     public static function newLast7Days()
     {
-        return Car::where('created_at','<=',Carbon::now())
-                ->where('created_at','>',Carbon::now()->subDays(7))
-                ->count();
+        return Car::where('created_at', '<=', Carbon::now())
+            ->where('created_at', '>', Carbon::now()->subDays(7))
+            ->count();
     }
 
-    public static function openAuctions(){
-        return Car::where('buyer_id',null)->count();
+    public static function openAuctions()
+    {
+        return Car::where('buyer_id', null)->count();
     }
 
-    public static function closedAuctions(){
-        return Car::where('buyer_id','!==',null)->count();
+    public static function closedAuctions()
+    {
+        return Car::where('buyer_id', '!=', null)->count();
+    }
+
+    public static function hasBuyer(Car $car)
+    {
+        if ($car->has('buyer')->get()->isEmpty())
+            return false;
+        else
+            return true;
     }
 //    public function scopeBrandFilter(Collection $cars,$brand_id){
 //
