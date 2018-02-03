@@ -76,24 +76,24 @@
                             <li><a href="{{ route('login') }}">Login</a></li>
                             <li><a href="{{ route('register') }}">Register</a></li>
                         @else
-                            <li class="dropdown">
+                            <li class="dropdown" style="color: #000000!important;">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 
                                 <ul class="dropdown-menu">
                                     <li>
-                                        <a href="/users/{{auth()->id()}}">
+                                        <a href="/users/{{auth()->id()}}"  style="color: #000000 !important;">
                                             Profile
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="/users/{{auth()->id()}}/password">
+                                        <a href="/users/{{auth()->id()}}/password"  style="color: #000000!important;">
                                             Change Password
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="{{ route('logout') }}"
+                                        <a href="{{ route('logout') }} "  style="color: #000000!important;"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                             Logout
