@@ -94,6 +94,10 @@
                             <span class="bold">KM: </span> {{$car->km}}
                         </a>
                         <a href="#" class="list-group-item">
+                            <span class="bold">Auction close at: </span>
+                            {{\Carbon\Carbon::parse($car->end_date)->diffForHumans()}}
+                        </a>
+                        <a href="#" class="list-group-item">
                             <span class="bold">Bid starts: </span> {{$car->first_bid}} $
                         </a>
                     </div>
