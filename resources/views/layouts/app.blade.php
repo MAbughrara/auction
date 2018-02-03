@@ -24,6 +24,18 @@
     <link href="{{ asset('css/footer.css') }}" rel="stylesheet">
     <link href="{{ asset('css/carsView.css') }}" rel="stylesheet">
     <link href="{{ asset('css/font-awesome.min.css') }}" rel="stylesheet">
+    <style>
+        .panel-heading{
+            background-color: #0a1029 !important;
+            color: #ffffff !important;
+        }
+        .navbar-inverse{
+            background-color:#06595d!important;
+        }
+        .navbar-inverse a{
+            color: #ffffff !important;
+        }
+    </style>
 </head>
 <body>
     <div id="app" style="background-color: #F4F7FA;">

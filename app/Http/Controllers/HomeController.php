@@ -27,7 +27,10 @@ class HomeController extends Controller
     public function index()
     {
         $cars=Car::all();
-        $bestOffer=$cars->sortBy('km')->sortBy('first_bid')->take(3);
+        $bestOffer=$cars->filter(function ($car){
+            return !Car::hasBuyer($car);
+        });
+        $bestOffer=$bestOffer->sortBy('km')->sortBy('first_bid')->take(3);
         $closedBids=$cars->filter(function ($car){
             return Car::hasBuyer($car);
         });

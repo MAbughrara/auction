@@ -162,7 +162,7 @@ class CarTableSeeder extends Seeder
 
         DB::table('cars')->insert([
             'id'=>12,
-            'seller_id'=>13,
+            'seller_id'=>10,
             'brand_id'=>2,
             'buyer_id'=>1,
             'status'=>'good',
