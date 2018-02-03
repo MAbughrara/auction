@@ -85,7 +85,7 @@
                             <span class="bold">Brand: </span> {{$car->brand->name}}
                         </a>
                         <a href="#" class="list-group-item ">
-                            <span class="bold">Year: </span> {{$car->status}}
+                            <span class="bold">Status: </span> {{$car->status}}
                         </a>
                         <a href="#" class="list-group-item ">
                             <span class="bold">Year: </span> {{$car->year}}

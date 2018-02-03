@@ -19,7 +19,7 @@
                             <hr>
                             <div class="form-group">
                                 <label for="km">KM</label>
-                                <input name="km" type="number" class="form-control" id="km" placeholder="Km">
+                                <input name="km" type="number" class="form-control" id="km" placeholder="Km" required>
                             </div>
                             <hr>
                             <label for="status">Car status</label>
@@ -32,18 +32,18 @@
                             <hr>
                             <div class="form-group">
                                 <label for="images">Image</label>
-                                <input name="images[]" type="file" id="images" multiple >
+                                <input name="images[]" type="file" id="images" multiple  required >
                                 <p class="help-block">Upload multiple Images for the car.</p>
                             </div>
                             <hr>
                             <div class="form-group">
                                 <label for="first_bid">Bis start at:</label>
-                                <input name="first_bid" type="number" class="form-control" id="first_bid">
+                                <input name="first_bid" type="number" class="form-control" id="first_bid"  required>
                             </div>
                             <hr>
                             <div class="form-group">
                             <label for="status">Made Year</label>
-                            <select class="js-example-basic-single form-control" name="year">
+                            <select class="js-example-basic-single form-control" name="year"  required>
                             @foreach(range(1985, 2018) as $number)
                                     <option value="{{$number}}">{{$number}}</option>
                             @endforeach

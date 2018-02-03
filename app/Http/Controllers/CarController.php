@@ -7,6 +7,7 @@ use App\Brand;
 use App\Car;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\File;
 
@@ -32,9 +33,8 @@ class CarController extends Controller
             return $car->hsaBuyer();
         });
 
-        dd($closedBids);
 //            ->where('end_date','>',Carbon::now()->toDateTimeString());
-        return view('cars.index',compact('cars','bestOffer'));
+        return view('cars.index',compact('cars','bestOffer','closedBids'));
     }
 
     /**
@@ -44,6 +44,10 @@ class CarController extends Controller
      */
     public function create()
     {
+
+        if (!Auth::check()) {
+            return redirect('/login');
+        }
         $brands=Brand::all();
         return view('cars.create',compact('brands'));
     }
@@ -56,6 +60,15 @@ class CarController extends Controller
      */
     public function store(Request $request)
     {
+
+        $this->validate($request, [
+            'status'=>'required',
+            'images.*'=>'required|image',
+            'end_date'=>'required|date',
+            'km'=>'required|min:0',
+            'first_bid'=>'required|min:0',
+
+        ]);
         $car= new Car();
         $car->seller_id=auth()->user()->id;
         $car->brand_id=request('brand_id');
