@@ -35,6 +35,9 @@ class HomeController extends Controller
             return Car::hasBuyer($car);
         });
 
+        $cars=$cars->filter(function ($car){
+            return !Car::hasBuyer($car);
+        });
         $brands=Brand::all();
         return view('home',compact('cars','brands','bestOffer','closedBids'));
     }
