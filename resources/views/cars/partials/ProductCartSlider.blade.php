@@ -143,7 +143,7 @@
                                     </div>
                                     <div class="separator clear-left">
                                         <p class="btn-details">
-                                            <i class="fa fa-list"></i><a href="/car/{{$car->id}}" class="hidden-sm">More details</a></p>
+                                            <i class="fa fa-list"></i><a href="/cars/{{$car->id}}" class="hidden-sm">More details</a></p>
                                     </div>
                                     <div class="clearfix">
                                     </div>
@@ -171,7 +171,7 @@
                                         </div>
                                         <div class="separator clear-left">
                                             <p class="btn-details">
-                                                <i class="fa fa-list"></i><a href="/car/{{$car->id}}" class="hidden-sm">More details</a></p>
+                                                <i class="fa fa-list"></i><a href="/cars/{{$car->id}}" class="hidden-sm">More details</a></p>
                                         </div>
                                         <div class="clearfix">
                                         </div>
